@@ -1,0 +1,33 @@
+<!-- 留言回复 -->
+<!-- {%if espcms_count($array)>0%}
+{%forlist from=$array key=i%}
+<li>
+	<div class="espcms_bbs_content_a_read_table">
+		<div class="espcms_index">
+			<span class="espcms_bbs_title">姓名：{%$array[i].addname%}</span>  {%if $array[i].email!=''%} <span class="espcms_bbs_auto">E-mail:{%$array[i].email%}</span>  {%/if%}  <span class="espcms_bbs_time">留言时间：{%$array[i].addtime|espcms_timeformat(3)%}</span>
+		</div>
+		<div class="content">
+			{%$array[i].content%}
+
+			{%if $array[i].re_list && espcms_count( $array[i].re_list )>0 %}
+			<div class="espcms_bbs_content_b_read_table">
+				<div class="espcms_index_re"><span class="espcms_bbs_title">回复列表</span></div>
+				<div class="content">
+					<ul>
+						{%forlist from=$array[i].re_list key=ii%}
+						<li>
+							<div class="forum_re_title"> 回复时间：{%$array[i].re_list[ii].addtime|espcms_timeformat(3)%}</div>
+							<div class="forum_re_message">{%$array[i].re_list[ii].content%}</div>
+						</li>
+						{%/forlist%}
+					</ul>
+				</div>
+			</div>
+			{%/if%}
+		</div>
+	</div>
+</li>
+{%/forlist%}
+{%else%}
+<li class="text-center">暂无留言</li>
+{%/if%} -->

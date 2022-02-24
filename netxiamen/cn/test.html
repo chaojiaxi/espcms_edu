@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Input In Container Fixed To Bottom Of Viewport | datetimepicker Tests</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    </head>
+    <style>
+        .waterfall{
+    column-count: 3;
+}
+.waterfall {
+    width: 100%;
+    -moz-column-gap:10px; /* Firefox */
+    -webkit-column-gap:10px; /* Safari 和 Chrome */
+    column-gap: 10px;
+    column-count:3;
+    margin: 0 auto;
+}
+ @media (min-width: 992px) and (max-width: 1300px) {
+            .waterfall {
+                column-count: 3;
+            }
+        }
+ @media (min-width: 768px) and (max-width: 991px) {
+            .waterfall {
+                column-count: 2;
+            }
+        }
+@media (max-width: 767px) {
+            .waterfall {
+                column-count: 1;
+            }
+        }
+.waterfall .item {
+    padding: 10px;
+    margin-bottom: 20px;
+    break-inside: avoid;
+    border: 1px solid #ccc;
+}
+.waterfall .item span.img{
+   display:block;
+   width:100%;
+   overflow:hidden;
+}
+.waterfall .item img {
+    max-width: 100%;
+    vertical-align: middle;
+    transition: all 0.6s; 
+    overflow:hidden;
+}
+.waterfall .item:hover img {
+transform: scale(1.4);
+}
+.waterfall .item span.title{
+  display:block;
+  line-height:2;
+  text-align:center;
+}
+    </style>
+
+    <body>
+        <div class="waterfall">
+            <div class="item">
+                <a href="javascript:void(0)">
+                    <span class="img"><img src="https://images.unsplash.com/photo-1629398395264-c3f4a95bcbb4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=676&q=80"></span>
+                    <span class="title">校园风光</span>
+                </a>
+            </div>
+            <div class="item">
+                <a href="javascript:void(0)">
+                    <span class="img"><img src="https://images.unsplash.com/photo-1629398836312-fa34e7feb0e6?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"></span>
+                    <span class="title">校园风光</span>
+                </a>
+            </div>
+            <div class="item">
+                <a href="javascript:void(0)">
+                    <span class="img"><img src="https://images.unsplash.com/photo-1629398836312-fa34e7feb0e6?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"></span>
+                    <span class="title">校园风光</span>
+                </a>
+            </div>
+        </div>
+
+    </body>
+</html>

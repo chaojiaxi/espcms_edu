@@ -1,0 +1,16 @@
+<!-- 当前位置 -->
+<div class="path">
+	<div class="path2">
+		<h4>
+			<i class="fa fa-location-arrow"></i>
+			当前位置&nbsp;:&nbsp;<a href="{%$homelink%}">首页</a> -
+			{%forlist from=$array key=i%}
+				{%if key=>i == $path_key%}
+				<a style="color: #666;" href="{%$array[i].link%}">{%$array[i].title%}</a>
+				{%else%}
+				<a style="color: #666;" href="javascript:void(0);">{%$array[i].title%}</a> -
+				{%/if%}
+			{%/forlist%}
+		</h4>
+	</div>
+</div>

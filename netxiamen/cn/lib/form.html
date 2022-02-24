@@ -1,0 +1,119 @@
+
+
+<div class="panel panel-info espcms_member_page">
+	<div class="panel-heading"><h3>提交表单</h3></div>
+	<div class="panel-body">
+		<form name="{%$type_read.formcode%}" id="{%$type_read.formcode%}" method="post" class="form-horizontal admin-form" action="{%$formlink.save%}">
+		<input type="hidden" name="tokenname" id="tokenname" value="{%$tokenkey.token_name%}"/>
+		<input type="hidden" name="tokenkey" id="tokenkey" value="{%$tokenkey.token_key%}"/>
+		<input type="hidden" name="fgid" id="fgid" value="{%$type_read.fgid%}"/>
+		<input type="hidden" name="formcode" id="formcode" value="{%$type_read.formcode%}"/>
+		{%if espcms_count($att_array) > 0%}
+		{%forlist from=$att_array key=i%}
+		{%if $att_array[i].inputtype=='string' || $att_array[i].inputtype=='int' || $att_array[i].inputtype=='float' || $att_array[i].inputtype=='decimal'%}
+		<div class="form-group {%$att_array[i].attrname%}">
+			<label class="col-sm-2 control-label">{%$att_array[i].typename%}</label>
+			<div class="col-sm-9">
+				<input type="text" name="{%$att_array[i].attrname%}" class="form-control" id="{%$att_array[i].attrname%}" placeholder="{%$att_array[i].typeremark%}" title="{%$att_array[i].typeremark%}" {%if $att_array[i].isvalidate==1%} data-validation="{%$att_array[i].validatetext%}"{%/if%} data-validation-msg="{%$att_array[i].validate_str%}" />
+			</div>
+		</div>
+		{%/if%}
+		{%if $att_array[i].inputtype=='text' || $att_array[i].inputtype=='htmltext'%}
+		<div class="form-group {%$att_array[i].attrname%}">
+			<label class="col-sm-2 control-label">{%$att_array[i].typename%}</label>
+			<div class="col-sm-9">
+				<textarea name="{%$att_array[i].attrname%}" class="form-control" style="width:100%;height:{%$att_array[i].attrrow%}px" id="{%$att_array[i].attrname%}" placeholder="{%$att_array[i].typeremark%}" title="{%$att_array[i].typeremark%}" {%if $att_array[i].isvalidate==1%} data-validation="{%$att_array[i].validatetext%}"{%/if%} data-validation-msg="{%$att_array[i].validate_str%}"></textarea>
+			</div>
+		</div>
+		{%/if%}
+		{%if $att_array[i].inputtype=='addon' || $att_array[i].inputtype=='img'%}
+		<div class="form-group {%$att_array[i].attrname%}">
+			<label class="col-sm-2 control-label">{%$att_array[i].typename%}</label>
+			<div class="col-sm-9">
+				<div class="input-group">
+					<input type="text" name="{%$att_array[i].attrname%}" class="form-control" id="{%$att_array[i].attrname%}" placeholder="{%$att_array[i].typeremark%}" title="{%$att_array[i].typeremark%}" data-display-type="top" {%if $att_array[i].isvalidate==1%} data-validation="{%$att_array[i].validatetext%}"{%/if%} data-validation-msg="{%$att_array[i].validate_str%}" />
+					<span class="input-group-btn">
+						 <a data-w="600px" data-h="310px" data-url="{%$att_array[i].uploadlink%}" data-title="上传文件" class="btn btn-warning dialog_link">上传文件</a>
+					</span>
+				</div>
+			</div>
+		</div>
+		{%/if%}
+		{%if $att_array[i].inputtype=='datetime' || $att_array[i].inputtype=='date'%}
+			<div class="form-group {%$att_array[i].attrname%}">
+				<label class="col-sm-2 control-label">{%$att_array[i].typename%}</label>
+				<div class="col-sm-9">
+					<input type="text" name="{%$att_array[i].attrname%}" class="form-control {%$att_array[i].inputtype%}" id="{%$att_array[i].attrname%}" placeholder="{%$att_array[i].typeremark%}" title="{%$att_array[i].typeremark%}" {%if $att_array[i].isvalidate==1%} data-validation="{%$att_array[i].validatetext%}"{%/if%} data-validation-msg="{%$att_array[i].validate_str%}"/>
+				</div>
+			</div>
+		{%/if%}
+		{%if $att_array[i].inputtype=='select'%}
+		<div class="form-group {%$att_array[i].attrname%}">
+			<label class="col-sm-2 control-label">{%$att_array[i].typename%}</label>
+			<div class="col-sm-9">
+				<select class="selectpicker form-control" name="{%$att_array[i].attrname%}" id="{%$att_array[i].attrname%}" data-size="8" {%if $att_array[i].isvalidate==1%}data-validation="{%$att_array[i].validatetext%}"{%/if%} data-validation-msg="{%$att_array[i].validate_str%}" title="{%pack:public_pack-espcms_select_title%}{%$att_array[i].typename%}">
+					{%forlist from=$att_array[i].attrvalue key=ii%}
+					<option value="{%$att_array[i].attrvalue[ii].name%}" {%$att_array[i].attrvalue[ii].selected%}>{%$att_array[i].attrvalue[ii].name%}</option>
+					{%/forlist%}
+				</select>
+			</div>
+		</div>
+		{%/if%}
+		{%if $att_array[i].inputtype=='radio'%}
+		<div class="form-group {%$att_array[i].attrname%}">
+			<label class="col-sm-2 control-label">{%$att_array[i].typename%}</label>
+			<div class="col-sm-9 pt6">
+				{%forlist from=$att_array[i].attrvalue key=ii%}
+				<input type="radio" name="{%$att_array[i].attrname%}" value="{%$att_array[i].attrvalue[ii].name%}" {%if $att_array[i].attrvalue[ii].selected=='selected'%}checked{%/if%}/><span class="pr10">{%$att_array[i].attrvalue[ii].name%}</span>
+				{%/forlist%}
+			</div>
+		</div>
+		{%/if%}
+		{%if $att_array[i].inputtype=='checkbox'%}
+		<div class="form-group {%$att_array[i].attrname%}">
+			<label class="col-sm-2 control-label">{%$att_array[i].typename%}</label>
+			<div class="col-sm-9 pt6">
+				{%forlist from=$att_array[i].attrvalue key=ii%}
+				<input type="checkbox" name="{%$att_array[i].attrname%}[]" value="{%$att_array[i].attrvalue[ii].name%}" {%if $att_array[i].attrvalue[ii].selected=='selected'%}checked{%/if%}/><span class="pr10">{%$att_array[i].attrvalue[ii].name%}</span>
+				{%/forlist%}
+			</div>
+		</div>
+		{%/if%}
+		{%/forlist%}
+		{%/if%}
+		{%if $type_read.isseccode%}
+		<div class="form-group">
+			<label for="title" class="col-sm-2 control-label">验证码</label>
+			<div class="col-sm-9">
+				<div class="row">
+					<div class="col-sm-8 col-md-8 col-mm-8 p0">
+						<input type="text" name="seccode" class="form-control" style="text-transform: uppercase;" id="seccode" data-validation="^[A-Za-z]{4}$" placeholder="请输入4位英文字符的验证码" title="请输入4位英文字符的验证码" maxlength="4" data-validation-msg="错误：验证码输入错误，请输入4位英文字符的验证码">
+					</div>
+					<div class="col-sm-4 col-md-4 col-mm-4 pl0">
+						<img title="点击更换验证码" id="{%$type_read.formcode%}_code" onclick="sessionimg('{%$type_read.formcode%}_code', '{%$rootdir%}')" src="{%$seccodelink%}" class="img-rounded" style="cursor: pointer;height:32px;" align="absmiddle"/>
+					</div>
+				</div>
+			</div>
+		</div>
+		{%/if%}
+		<div class="form-group">
+			<label class="col-sm-2 control-label"></label>
+			<div class="col-sm-9">
+				<input type="submit" class="btn btn-success" formmethod="POST" value="确认提交"/>
+			</div>
+		</div>
+	</form>
+	</div>
+</div>
+
+<!-- 提交表单 -->
+<script type="text/javascript" src="{%$rootdir%}js/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="{%$rootdir%}espcms_includes/js/espcms_dialog.js"></script>
+<script type="text/javascript" src="{%$rootdir%}espcms_includes/js/espcms_formvalidation.js"></script>
+<script type="text/javascript">
+	$(window).load(function () {
+		$("#{%$type_read.formcode%}").espcms_formvalidation();
+		$('.dialog_link').espcms_dig();
+		$("#{%$type_read.formcode%}").espcms_token_js({url: '{%$formlink.token%}'});
+	});
+</script>

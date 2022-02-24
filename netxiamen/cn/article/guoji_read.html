@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%$lngpack.sitename%}</title>
+    <meta name="keywords" content="{%$lngpack.keyword%}" />
+    <meta name="description" content="{%$lngpack.description%}" />
+    <link rel="icon" type="image/png" href="{%$icon_32%}" sizes="32x32" />
+    <!-- <link href="{%$rootpath%}css/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="{%$rootpath%}css/public.css" rel="stylesheet" type="text/css" /> -->
+    <link href="{%$rootpath%}css/index.css" rel="stylesheet" type="text/css" />
+    <!-- datetimepicker -->
+    <!-- <link href="{%$rootpath%}css/datetimepicker.css" rel="stylesheet"> -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/jquery-datetimepicker/2.5.9/jquery.datetimepicker.css" rel="stylesheet">
+
+
+    <!-- Bootstrap -->
+    <link href="{%$rootpath%}css/bootstrap.min.css" rel="stylesheet">
+    <!-- animate.css -->
+    <link href="{%$rootpath%}css/animate.css" rel="stylesheet">
+    <!-- Fonts -->
+    <!-- Plugins -->
+    <!-- Icons -->
+    <link href="{%$rootpath%}css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="{%$rootpath%}css/responsiveslides.css">
+    <link href="{%$rootpath%}css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{%$rootpath%}css/index.vsb.css" />
+
+    <!-- Global style (main) -->
+    <link href="{%$rootpath%}css/home.css" rel="stylesheet">
+    <!-- Global style(content) -->
+    <link href="{%$rootpath%}css/content.css" rel="stylesheet">
+    <!-- 通用 -->
+    <link href="{%$rootpath%}css/public.css" rel="stylesheet">
+    <!-- 单页 -->
+    <link href="{%$rootpath%}css/danye.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+    {%link file="public/header.html"%}
+
+    <div class="main">
+        <!--左菜单-->
+        <div class="container listcolumn">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="nav-menu-1">
+                                        <div class="nav-menu-2">
+                                            {%get name=typelist class=utid:$type.topid,tid:$type.tid%}
+                                            <div class="nav-menu">
+                                                <div class="nav-menu-title">
+                                                    {%$uptypeview.typename%}
+                                                </div>
+                                                <ul>
+                                                    {%forlist from=$array key=i%} 
+                                                    {%if $array[i].selected=='selected'%}
+                                                    <li class="cur"><a href="{%$array[i].link%}" title="{%$array[i].typename%}">{%$array[i].typename%}</a></li>
+                                                    {%else%}
+                                                    <li><a href="{%$array[i].link%}" title="{%$array[i].typename%}">{%$array[i].typename%}</a>
+                                                    </li>
+                                                    {%/if%} {%/forlist%}
+                
+                                                </ul>
+                                            </div>
+                                            {%/get%}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="row pd50">
+                                <!-- 当前位置 -->
+                                {%list name=path class=type:doc,id:$type.tid%} 
+                                <div class="content">
+                                    <div class="path-title">
+                                        {%$read.title%}
+                                    </div>
+
+                                    <div class="content2">
+                                        {%$read.content%}
+                                        <div class="hezuo_bottom">
+                                            <ul class="bkjyBox">
+                                                <li> <a href="" title="本科专业"><h4>国际学院合作</h4></a></li>
+                                                <li> <a href="" title="教学名师"><h4>海外科研合作</h4></a></li>
+                                                <li> <a href="" title="优秀课程"><h4>国际学生学者</h4></a></li>
+                                                <li> <a href="" title="实践教学"><h4>全球战略</h4></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- <section class="container espcms_page_book">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3">
+
+                <div class="panel panel-info">
+                    {%get name=typelist class=utid:$type.topid,tid:$type.tid%}
+                    <div class="panel-heading espcms_page_navigation_title">
+                        <h4>{%$uptypeview.typename%}</h4>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group espcms_page_navigation">
+                            {%forlist from=$array key=i%} {%if $array[i].selected=='selected'%}
+                            <li class="list-group-item active">{%$array[i].typename%}</li>
+                            {%else%}
+                            <li class="list-group-item"><a href="{%$array[i].link%}" class="link_4242" title="{%$array[i].typename%}">{%$array[i].typename%}</a></li>
+                            {%/if%} {%/forlist%}
+                        </ul>
+                    </div>
+                    {%/get%}
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading espcms_page_navigation_title">
+                        <h4>专题列表</h4>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group espcms_page_infolist">
+                            {%get name=subtype class=mid:2%} {%forlist from=$array key=i%}
+                            <li class="list-group-item">
+                                <a class="link_4242_der" title="{%$array[i].title%}" href="{%$array[i].link%}">{%$array[i].subjectname%}</a>
+                            </li>
+                            {%/forlist%} {%/get%}
+                        </ul>
+                    </div>
+                </div>
+
+                {%link file="public/left.html"%}
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-9">
+                {%list name=path class=type:doc,id:$type.tid%} 
+                {%if espcms_count($array) > 0%}
+                <div class="espcms_info_list">
+                    <ul class="list-group">
+                        {%forlist from=$array key=i%}
+                        <li class="list-group-item">
+                            <span class="badge espcms_info_time">{%$array[i].addtime|espcms_timeformat(3)%}</span>
+                            <a class="link_4242_der" title="{%$array[i].title%}" href="{%$array[i].link%}">{%$array[i].ctitle%}</a> {%if $array[i].summary%}
+                            <p class="list-group-item-text word_wrap">{%$array[i].summary%}</p>
+                            {%/if%}
+                        </li>
+                        {%/forlist%}
+                    </ul>
+                </div>
+
+                <div class="espcms_page_botton">
+                    <span class="btn btn-default">共{%$page_read.db_num%}条/共有{%$page_read.page_num%}页</span> {%$pagebotton%}
+                </div>
+                {%else%}
+                <div class="espcms_info_list text-center">
+                    暂无内容
+                </div>
+                {%/if%}
+            </div>
+        </div>
+    </section> -->
+
+    {%link file="public/footer.html"%}
+    <!-- 视频弹框 end-->
+    <!-- Core -->
+    <script type="text/javascript" src="{%$rootpath%}js/zepto.min.js"></script>
+    <!-- swiper轮播图 -->
+    <script type="text/javascript" src="{%$rootpath%}js/swiper.js"></script>
+    <!-- jquery-1.9.1 -->
+    <script type="text/javascript" src="{%$rootpath%}js/jquery-1.9.1.min.js"></script>
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.6.1/jquery.min.js"></script> -->
+    <!-- bootstrap -->
+    <script type="text/javascript" src="{%$rootpath%}css/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Plugins: Sorted A-Z -->
+    <script type="text/javascript" src="{%$rootpath%}js/menu.js"></script>
+    <!-- 回到顶点插件 -->
+    <script type="text/javascript" src="{%$rootpath%}js/totop.js"></script>
+    <!-- jQuery自动轮插件jquery.SuperSlide -->
+    <script type="text/javascript" src="{%$rootpath%}js/jquery.superslide.js"></script>
+    <!--  jQuery幻灯片插件 -->
+    <script type="text/javascript" src="{%$rootpath%}js/responsiveslides.min.js"></script>
+    <!-- Zepto.js 移动JavaScript框架 -->
+    <script type="text/javascript" src="{%$rootpath%}js/style.js"></script>
+    <!-- 动画特效 -->
+    <script type="text/javascript" src="{%$rootpath%}js/wow.js"></script>
+    <!-- tabs hover事件 -->
+    <script type="text/javascript" src="{%$rootpath%}js/jquery.tabslet.min.js"></script>
+    <!-- datetimepicker日期插件 -->
+    <!-- <script type="text/javascript" src="{%$rootpath%}js/jquery.datetimepicker.full.min.js"></script> -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery-datetimepicker/2.5.9/jquery.datetimepicker.full.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%$lngpack.sitename%}</title>
+    <meta name="keywords" content="{%$lngpack.keyword%}" />
+    <meta name="description" content="{%$lngpack.description%}" />
+    <link rel="icon" type="image/png" href="{%$icon_32%}" sizes="32x32" />
+    <!-- <link href="{%$rootpath%}css/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="{%$rootpath%}css/public.css" rel="stylesheet" type="text/css" /> -->
+    <link href="{%$rootpath%}css/index.css" rel="stylesheet" type="text/css" />
+    <!-- datetimepicker -->
+    <!-- <link href="{%$rootpath%}css/datetimepicker.css" rel="stylesheet"> -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/jquery-datetimepicker/2.5.9/jquery.datetimepicker.css" rel="stylesheet">
+
+
+    <!-- Bootstrap -->
+    <link href="{%$rootpath%}css/bootstrap.min.css" rel="stylesheet">
+    <!-- animate.css -->
+    <link href="{%$rootpath%}css/animate.css" rel="stylesheet">
+    <!-- Fonts -->
+    <!-- Plugins -->
+    <!-- Icons -->
+    <link href="{%$rootpath%}css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="{%$rootpath%}css/responsiveslides.css">
+    <link href="{%$rootpath%}css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{%$rootpath%}css/index.vsb.css" />
+
+    <!-- Global style (main) -->
+    <link href="{%$rootpath%}css/home.css" rel="stylesheet">
+    <!-- Global style(content) -->
+    <link href="{%$rootpath%}css/content.css" rel="stylesheet">
+    <link href="{%$rootpath%}js/share/css/share.min.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+    {%link file="public/header.html"%}
+
+    <div class="main">
+        <!--左菜单-->
+        <div class="container listcolumn">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="nav-menu-1">
+                                        <div class="nav-menu-2">
+                                            {%get name=typelist class=utid:$type.topid,tid:$type.tid%}
+                                            <div class="nav-menu">
+                                                <div class="nav-menu-title">
+                                                    {%$uptypeview.typename%}
+                                                </div>
+                                                <ul>
+                                                    {%forlist from=$array key=i%} 
+                                                    {%if $array[i].selected=='selected'%}
+                                                    <li class="cur"><a href="{%$array[i].link%}" title="{%$array[i].typename%}">{%$array[i].typename%}</a></li>
+                                                    {%else%}
+                                                    <li><a href="{%$array[i].link%}" title="{%$array[i].typename%}">{%$array[i].typename%}</a>
+                                                    </li>
+                                                    {%/if%} {%/forlist%}
+                
+                                                </ul>
+                                            </div>
+                                            {%/get%}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="row">
+                                <!-- 当前位置 -->
+                                {%list name=path class=type:doc,id:$type.tid%} 
+                                <div class="content">
+                                    <div class="jz_title">
+                                        信息预告
+                                    </div>
+
+                                    {%forlist from=$array key=i%}
+                                    <div class="cont">
+                                        <div class="addtime">
+                                            <div class="month">{%$array[i].addtime|espcms_timeformat(7,'/')%}</div>
+                                            <div class="day">{%$array[i].addtime|espcms_timeformat(11)%}</div>
+                                            <div class="share">
+                                                <i class="fa fa-share-alt fa-2x "></i>
+
+                                                <div class="social-share share-1" data-initialized="true" aria-controls="bottom-right">
+                                                    <a href="#" class="social-share-icon icon-weibo"></a>
+                                                    <a href="#" class="social-share-icon icon-qq"></a>
+                                                    <a href="#" class="social-share-icon icon-wechat"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="content1">
+                                            <div class="cont1-title"><a href="{%$array[i].link%}" title="{%$array[i].title%}">{%$array[i].ctitle%}</a></div>
+                                            <div class="cont1-content content-clamp4 ">
+                                                <div>讲座时间：{%$array[i].yanchu_time%}</div>
+                                                <div>地点: {%$array[i].place%}</div>
+                                                <div>演讲作者: {%$array[i].presenter%}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {%/forlist%}
+
+                                    <div class="page_botton" style="margin: 100px 0 20px 0;text-align: center;">
+                                        <span class="btn" style="border: 1px solid #999;">共{%$page_read.db_num%}条/共有{%$page_read.page_num%}页</span> {%$pagebotton%}
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {%link file="public/footer.html"%}
+    <!-- 视频弹框 end-->
+    <!-- Core -->
+    <script type="text/javascript" src="{%$rootpath%}js/zepto.min.js"></script>
+    <!-- swiper轮播图 -->
+    <script type="text/javascript" src="{%$rootpath%}js/swiper.js"></script>
+    <!-- jquery-1.9.1 -->
+    <script type="text/javascript" src="{%$rootpath%}js/jquery-1.9.1.min.js"></script>
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.6.1/jquery.min.js"></script> -->
+    <!-- share分享插件 -->
+    <script type="text/javascript" src="{%$rootpath%}js/share/js/jquery.share.min.js"></script>
+    <!-- bootstrap -->
+    <script type="text/javascript" src="{%$rootpath%}css/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Plugins: Sorted A-Z -->
+    <script type="text/javascript" src="{%$rootpath%}js/menu.js"></script>
+    <!-- 回到顶点插件 -->
+    <script type="text/javascript" src="{%$rootpath%}js/totop.js"></script>
+    <!-- jQuery自动轮插件jquery.SuperSlide -->
+    <script type="text/javascript" src="{%$rootpath%}js/jquery.superslide.js"></script>
+    <!--  jQuery幻灯片插件 -->
+    <script type="text/javascript" src="{%$rootpath%}js/responsiveslides.min.js"></script>
+    <!-- Zepto.js 移动JavaScript框架 -->
+    <script type="text/javascript" src="{%$rootpath%}js/style.js"></script>
+    <!-- 动画特效 -->
+    <script type="text/javascript" src="{%$rootpath%}js/wow.js"></script>
+    <!-- tabs hover事件 -->
+    <script type="text/javascript" src="{%$rootpath%}js/jquery.tabslet.min.js"></script>
+    <!-- datetimepicker日期插件 -->
+    <!-- <script type="text/javascript" src="{%$rootpath%}js/jquery.datetimepicker.full.min.js"></script> -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery-datetimepicker/2.5.9/jquery.datetimepicker.full.min.js"></script>
+    <script>
+        $('#share-1').share({sites: ['qq', 'weibo','wechat']});
+    </script>
+</body>
+
+</html>

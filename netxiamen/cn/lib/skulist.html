@@ -1,0 +1,21 @@
+{%if espcms_count($array)%}
+<div class="attr_key">
+    <div class="panel panel-warning">
+        <div class="panel-heading"><strong>筛选</strong></div>
+        <div class="list-group attr_key_list">
+            {%forlist from=$array key=i%}
+            <div class="list-group-item">
+                <div class="attr_title">{%$array[i].sku_name%}：</div>
+                <div class="attr_item">
+                    <ul class="attr_key_id">
+                        {%forlist from=$array[i].attr key=ii%}
+                        <li class="{%$array[i].attr[ii].hover_class%}"><a href="{%$array[i].attr[ii].link%}">{%$array[i].attr[ii].sku_key_name%}</a></li>
+                        {%/forlist%}
+                    </ul>
+                </div>
+            </div>
+            {%/forlist%}
+        </div>
+    </div>
+</div>
+{%/if%}

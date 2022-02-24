@@ -1,0 +1,21 @@
+<div class="articleRight">
+	{%get name=typelist class=utid:$type.topid,tid:$type.tid%}
+	<p>{%$uptypeview.typename%}</p>
+	<ul>
+		{%forlist from=$array key=i%}
+		{%if $array[i].selected=='selected'%}
+		<li class="active"><i class="fa fa-circle-o-notch"></i> {%$array[i].typename%}</li>
+		{%else%}
+		<li><a title="{%$array[i].typename%}" href="{%$array[i].link%}"><i class="fa fa-circle-o-notch""></i> {%$array[i].typename%}</a></li>
+		{%/if%}
+		{%forlist from=$array[i].childArray key=ii%}
+		{%if $array[i].childArray[ii].selected=='selected'%}
+		<li class="two active"><i class="fa fa-circle-o-notch"></i>{%$array[i].childArray[ii].typename%}</li>
+		{%else%}
+		<li class="two"><a title="{%$array[i].childArray[ii].typename%}" href="{%$array[i].childArray[ii].link%}"><i class="fa fa-circle-o-notch"></i> {%$array[i].childArray[ii].typename%}</a></li>
+		{%/if%}
+		{%/forlist%}
+		{%/forlist%}
+	</ul>
+	{%/get%}
+</div>

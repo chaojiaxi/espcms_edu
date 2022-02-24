@@ -1,0 +1,14 @@
+<form name="vote_submit" id="vote_submit" method="post" action="{%$link.save%}">
+	<input type="hidden" name="vote_id" id="vote_id" value="{%$vote_id%}"/>
+	<div id="main_vote" class="main_sub"></div>
+</form>
+<script type="text/javascript">
+	$().ready(function () {
+		$.ajax({
+			type: "get", url: "{%$link.getvote%}", global: false,
+			success: function (data) {
+				$('#main_vote').empty().append(data);
+			}
+		});
+	});
+</script>

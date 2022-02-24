@@ -1,0 +1,63 @@
+<!-- 其他页header -->
+<!-- header -->
+<style>
+    .news_header{
+        background: linear-gradient(to right, #122e66, #1748ab, #122e66);
+    }
+    </style>
+    <header class="header news_header">
+        <div class="fixline"></div>
+        <div class="container clearfix">
+            <div class="fl left">
+                <!-- logo图片切换 -->
+                <a href="#">
+                    <img src="{%$rootpath%}images/picture/baiyun4.png" alt="" class="img1" />
+                </a>
+                <a href="#">
+                    <img src="{%$rootpath%}images/picture/baiyun1.png" alt="" class="img2" />
+                </a>
+            </div>
+            <div class="fr nav">
+                <div class="btn-all">
+                    <div class="status">
+                        {%get name=bann class=atid:7,adtype:3,max:10%} {%forlist from=$array key=i%}
+                        <span><a href="{%$array[i].link%}" title="{%$array[i].title%}" target="_blank">{%$array[i].title%}</a></span> 
+                        {%/forlist%} {%/get%}
+                    </div>
+                    <div class="lang"> 
+                        <a href="#" target="_blank"><i class="fa fa-lg fa-globe-asia" style="font-weight: bold;">简单中文&nbsp;&nbsp;-&nbsp;&nbsp;</i></a>
+                        <a href="#" target="_blank"><i class="fa fa-lg fa-globe-asia" style="font-weight: bold;">English</i></a>
+                    </div>
+                </div>
+    
+                {%get name=nav class=path:$path,current:$current,hover_id:$hover_id,doc_id:$doc_id,child:3,ismenu:1,ishome:0%}
+    
+                <ul class="navbar_nav" data-in="fadeInDown" data-out="fadeOutUp">
+                    <li class="dropdown"> <a href="{%$url%}" title="首页">首页</a>
+                    </li>
+                    {%forlist from=$array key=i%}
+                    <li class="dropdown dropdown_slideDown {%if $array[i].hover==1%}active{%/if%}">
+                        {% if espcms_count((array) $array[i].childArray ) > 0 %} 
+                        <a  href="javascript:void(0);" {%if $array[i].nevigate_target==1%} target="_blank" {%/if%} class="a_animate" title="{%$array[i].title%}" ><span>{%$array[i].title%}</span></a>
+                        <div class="dropdown_menu">
+                            {%forlist from=$array[i].childArray key=ii%}
+                            <a href="{%$array[i].childArray[ii].link%}" title="{%$array[i].childArray[ii].title%}">{%$array[i].childArray[ii].title%}</a>
+                            {%/forlist%}
+                            
+                        </div>
+                        {%else%}
+                        <a href="{%$array[i].title%}" title="{%$array[i].link%}">{%$array[i].title%}</a>
+    
+                        {%/if%}
+                    </li>
+                    {%/forlist%}
+                </ul>
+                {%/get%}
+            </div>
+            <a href="javascript:void(0)" id="navToggle"> <span></span>
+            </a>
+        </div>
+    </header>
+    
+
+

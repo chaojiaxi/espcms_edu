@@ -1,0 +1,41 @@
+<div class="col-md-12">
+    <div class="row">
+        <div class="news-title2">
+            <div class="news-title1"><span><i class="fa fa-video-camera news-icon"></i>最新焦点</span></div>
+            <div class="more">more</div>
+        </div>
+        <div class="news-content2">
+            {%get name=list class=mid:6,tid:60,max:6%}
+            {%forlist from=$array key=i%}
+            <div class="focus-item1">
+                <div class="focus-item-date">
+                    <div class="focus-day">{%$array[i].addtime|espcms_timeformat(11)%}</div>
+                    <div class="focus-month">{%$array[i].addtime|espcms_timeformat(7)%}</div>
+                </div>
+                <div class="focus-item-title2 content-clamp2"><a href="{%$array[i].link%}" title="{%$array[i].title%}">{%$array[i].ctitle%}</a>
+                </div>
+            </div>
+            {%/forlist%}
+            {%/get%}
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="row">
+        <div class="news-title2">
+            <div class="news-title1"><span><i class="fa fa-video-camera news-icon"></i>媒体白云</span></div>
+            <div class="more">more</div>
+        </div>
+    </div>
+    <div class="news-content2">
+        {%get name=list class=mid:6,tid:62,max:5%}
+        {%forlist from=$array key=i%}
+        <div class="focus-item">
+            <div class="addtime"><i class="fa fa-calendar-times-o news-icon"></i>{%$array[i].addtime|espcms_timeformat(2)%}</div>
+            <div class="focus-item-title"><a href="{%$array[i].link%}" title="{%$array[i].title%}">{%$array[i].ctitle%}</a>
+            </div>
+        </div>
+        {%/forlist%}
+        {%/get%}
+    </div>
+</div>

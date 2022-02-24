@@ -1,0 +1,130 @@
+
+.main-news{
+    width: 100%;
+}
+
+/********************新闻网首页*********************/
+
+/* 新闻轮播 */
+.news-swiper{border: 1px solid #e6e6e6;padding: 15px;}
+.slide_bottom{padding: 10px;}
+.slide_img{height: 450px;width: 100%;overflow: hidden;}
+.slide_img img{height: 100%;width: 100%;object-fit: cover;}
+
+.top-news-title{line-height: 48px;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;text-align: justify;display: block;}
+.top-news-title a, .zhxw-item-title a, .kyjz-item-title a, .xsjz-item-title a {color: #133372;font-size: 16px;font-weight: bold;}
+
+.news-content, .zhxw-item-detail, .kyjz-item-detail {line-height: 24px;overflow: hidden;color: #828282;font-size: 14px;}
+.addtime{font-size: 16px;height: 30px;line-height: 30px;text-align: right;margin-top: 15px;color: #666;}
+
+/* 新闻标题栏 */
+.news-title2{display: flex;flex-direction: row;justify-content: space-between;border-bottom: 1px solid #143372;}
+.news-title3{margin-top: 10px;}
+.news-title1{color: #143372;text-align: left;font-size: 20px;height: 42px;line-height: 42px;margin-bottom: -1px;font-weight: bold;position: relative;z-index: 9;}
+.news-title1 span{display: inline-block;line-height: 38px;border-bottom: 2px solid #234fa5;padding: 0 10px;}
+.news-icon{margin-right: 6px;}
+.addtime .news-icon{color: #c53c3c;}
+.more {height: 42px;line-height: 42px;font-size: 16px;font-style: oblique;}
+.more a{color: #000;}
+
+/* 焦点新闻 */
+.focus-item a ,.cul-title a{color: #333;}
+.focus-item:hover a ,.cul-title:hover a{color: #215ace;}
+.focus-item, .mtxd-item {border-bottom: 1px solid #e3e3e3;padding-bottom: 15px;}
+.focus-item .addtime {text-align: left;}
+.focus-item-title{line-height: 28px;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;text-align: justify;display: block;}
+
+/* 文化白云 */
+.cul-item{padding: 5px 0;}
+.cul-img-box{width: 100%;overflow: hidden;}
+.cul-img-box img{width: 100%;height: auto;object-fit: contain;}
+.cul-title{line-height: 42px;text-align: center;}
+.cul-title:hover a{color: #cc191c;}
+
+/* 视频视角 */
+.new_video .img_video{height: auto !important;}
+/* .new_video ul li:hover a{background-color: rgba(0, 0, 0, .4);z-index: 100;} */
+.new_video .end_time{position: absolute;left: 0;top: 0;color: #fff;font-size: 20px;font-weight: bold;padding: 5px;}
+.video_read iframe{width: 100%;height: 600px;}
+
+/* 专题图片 */
+.link-img-box{margin-top: 20px;width: 100%;height: auto;overflow: hidden;display: block;}
+.link-img-box img{width: 100%;height: auto;object-fit: contain;}
+/* 纵横新闻 */
+.zongheng{margin: 20px 0;}
+.zongheng .zongheng-news{width: 100%;height: auto;background: url(../images/pic/zhxw-bg.png) no-repeat;padding: 40px;position: relative;}
+.zongheng .text-pic {display: flex;flex-direction: row;justify-content: space-between;line-height: 30px;}
+.zongheng .text-first{font-size: 30px;color: #000;font-weight: 800;}
+.zongheng .text-second{font-size: 24px;color: rgb(156, 29, 29);font-weight: 600;}
+.zongheng .text-right a{font-size: 20px;color: #000000;font-weight: 300;}
+.zongheng-item {margin-top: 15px;border: 1px solid #e6e6e6;padding: 10px;-webkit-transition: 0.5s;-moz-transition: 0.5s;-o-transition: 0.5s;transition: 0.5s;}
+.zongheng-item:hover{box-shadow: 0 0 20px #a1a1a1;-webkit-box-shadow: 0 0 20px #a1a1a1;-o-box-shadow: 0 0 20px #a1a1a1;-moz-box-shadow: 0 0 20px #a1a1a1;}
+.zongheng-item-img {width: 100%;height: 200px;overflow: hidden;}
+
+.zongheng-item-img img {width: 100%;height: 100%;object-fit: cover;}
+.zongheng-item-title {line-height: 24px;height: 48px;overflow: hidden;margin-top: 10px;}
+.zongheng-item-title a{font-size: 16px;color: #000;font-weight: bold;}
+.zongheng-item-title:hover a{color: #cc191c;}
+.zongheng-item-detail {margin-top: 10px;}
+.zongheng-item-detail {line-height: 24px;height: 72px;text-align: justify;overflow: hidden;color: #828282;font-size: 14px;}
+
+/* 通知公告 */
+.announcement{margin: 10px 0;display: flex;flex-direction: row;line-height: 30px;}
+.announcement-title{font-size: 14px;width: 80%;}
+.announcement .announcement-title a{color: #666;}
+.announcement .announcement-title a:hover{color: #cc191c;}
+.announcement-addtime{width: 20%;text-align: right;color: #999;}
+
+
+
+/********************新闻网列表*********************/
+/* 新闻列表 */
+.pageContent {text-align: left;width: 100%;padding-right: 30px;}
+.adress {text-align: left;line-height: 42px;font-size: 20px;color: #000000;border-bottom: 1px dotted #111;margin-bottom: 15px;width: 100%;}
+
+.jdxw-title {font-size: 24px;font-weight: bold;line-height: 64px;color: #1D3DA2;}
+.listcolumn-title {line-height: 46px;text-align: left;padding-left: 0px;border-bottom: 1px solid #e6e6e6;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;text-align: justify;}
+.listcolumn-date {text-align: right;font-size: 16px;padding-right: 0px;color: #848484;line-height: 46px;border-bottom: 1px solid #e6e6e6;}
+.listcoumn-con .row{padding: 0 15px;}
+.listcoumn-con .row:hover{box-shadow: 0 0 20px #a1a1a1;-webkit-box-shadow: 0 0 20px #a1a1a1;-o-box-shadow: 0 0 20px #a1a1a1;-moz-box-shadow: 0 0 20px #a1a1a1;}
+/* 最新新闻 */
+.news-content2{margin: 10px 0;}
+.focus-item1{display: flex;flex-direction: row;margin: 10px 0;}
+.focus-item-date {width: 25%;float: left;border: 1px solid #1D3DA2;text-align: center;margin-right: 5%;margin-top: 0px;}
+.focus-day {font-size: 24px;font-weight: bold;padding-top: 10px;padding-bottom: 5px;color: #1D3DA2;line-height: 24px;}
+.focus-month {padding-bottom: 10px;line-height: 20px;}
+.focus-item-title2 {width: 70%;float: left;line-height: 24px;height: 48px;margin-top: 10px;}
+
+/********************新闻阅读内容***********************/
+.main-news .pageContent .path{margin-top: -7px;}
+.main-news .content .content-source .bdsharebuttonbox {display: inline;position: absolute;right: 0;}
+.content{margin-top: 20px;padding: 0 10px;}
+.content-title{ width: 100%; font-size: 24px; color: #333; text-align: left; margin-bottom: 15px; font-weight: bold; margin-top: 30px; line-height: 1.5em;}
+.content-source{ width: 100%; text-align: left; color: #B4B4B4; font-size: 16px; line-height: 30px; position: relative;}
+.content2{ margin: 10px 0;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

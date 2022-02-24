@@ -1,0 +1,359 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- <meta name="renderer" content="webkit"> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>北京师范大学</title>
+    <link href="{%$rootpath%}bks_recruit/css/animate.css" rel="stylesheet">
+    <link rel="stylesheet" href="{%$rootpath%}bks_recruit/css/style.css">
+    <link rel="stylesheet" href="{%$rootpath%}css/bootstrap/css/bootstrap3.css">
+
+    <link rel="stylesheet" href="{%$rootpath%}bks_recruit/css/banner.css">
+    <link href="{%$rootpath%}css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="{%$rootpath%}bks_recruit/css/animate.css">
+    <link rel="stylesheet" href="{%$rootpath%}bks_recruit/css/index.css">
+    <link rel="stylesheet" href="{%$rootpath%}css/pubilc.css">
+<link rel="shortcut icon" href="{%$rootpath%}bks_recruit/images/favicon.ico" >
+<!--[if lt IE 9]>
+<script src="{%$rootpath%}bks_recruit/js/html5.js"  type="text/javascript"></script>
+</script>
+<![endif]-->
+</head>
+<body>
+
+
+
+
+<!--header开始-->
+
+
+<div class="header" >
+    <div class="serWrap">
+        <div id="ser">
+            <div class="ser" >
+                <form name="dataForm" class="search" action="/cms/search/searchResults.jsp" target="_blank" method="post" accept-charset="utf-8" onSubmit="document.charset='utf-8';">
+                    <input name="siteID" value="57" type ="hidden">
+                    <input class="notxt" value="search" name="query" type="text" id="keywords" onFocus="if(value==defaultValue){value='';}" onBlur="if(!value){value=defaultValue;}"
+                     onclick="if(this.value==''){this.value='';this.form.keywords.style.color='#444'}">
+                    <input class="notxt1" name="Submit" type="submit" value="搜索" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="topWrap">
+      <div class="top">
+            <div class="top_lf">
+                <a href="{%find:type class=51 out=link%}" target="_blank">信息公开</a><span>|</span> 
+                <a href="{%find:type class=147 out=link%}" target="_blank">服务中心</a><span>|</span>
+                <a href="{%find:type class=124 out=link%}" target="_blank">教师邮箱</a><span>|</span>
+                <a href="{%find:type class=124 out=link%}" target="_blank">学生邮箱</a>
+            </div>
+            <div class="top_rt">
+                <a href="{%$url%}" target="_blank">白云学院主网</a><span>|</span> 
+                <a href="{%find:type class=59 out=link%}" target="_blank">白云新闻</a><span>|</span> 
+                <a href="http://www.byxy.com/" target="_blank">技师学院</a>&nbsp;&nbsp;<a class="serBtn" href="javascript:void(0)">&nbsp;</a>
+            </div>
+      </div>
+    </div>
+    <div class="nav-wrapper">
+        <div class="logo"><a href="index.htm"><img src="{%$rootpath%}bks_recruit/picture/logo1.png" alt=""></a></div>
+        <div class="logo_bg"><img src="{%$rootpath%}bks_recruit/picture/logo_bg.png" alt=""></div>
+        <div class="nav" id="nav">
+            <ul class="nav_lf">    
+                <li><a href="javascript:void(0)">首页</a></li>
+                <li><a href="javascript:void(0)">学校概况</a>
+				    <dl class="subNav  ">
+                      <dd><a href="{%find:type class=168 out=link%}">学校简介</a></dd>
+                      <dd><a href="{%find:type class=169 out=link%}">校长寄语</a></dd>
+                      <dd><a href="{%find:type class=170 out=link%}">学校环境</a></dd>
+                    </dl>
+				</li>
+                <li><a href="{%find:type class=152 out=link%}">院系介绍</a></li>
+                <li><a href="{%find:type class=153 out=link%}">人才培养</a></li>
+                <li><a href="{%find:type class=154 out=link%}">招生政策</a></li>
+
+
+            </ul>
+            <ul class="nav_rt">
+                <li><a href="{%find:type class=155 out=link%}">计划分数</a></li>
+                <li><a href="{%find:type class=156 out=link%}">录取查询</a>
+                    <dl class="subNav  ">
+                        <dd><a href="javascript:void(0)" target="_blank">普通本科录取查询</a></dd>
+                        <dd><a href="javascript:void(0)" target="_blank">成绩查询</a></dd>
+                    </dl>
+                </li>     
+                <li><a href="{%find:type class=157 out=link%}">入学须知</a></li>
+                <li><a href="{%find:type class=158 out=link%}">招生宣传</a></li>
+                <li><a href="{%find:type class=159 out=link%}">奖助体系</a></li>
+            </ul>
+        </div>
+    </div>
+</div><!--header结束 -->
+
+<!--修改banner开始-->
+<div class="banner">
+    
+    <div class="flexslider">
+    <ul class="slides">
+        <li>
+            <a href="http://news.bnu.edu.cn/zx/ztxw/dsxxjy/index.htm" target="_blank">
+                <img src="{%$rootpath%}bks_recruit/picture/20210707084009106648.jpg" /><span class="bannerTitle"></span>
+            </a>
+        </li>
+        <li>
+            <a href="http://news.bnu.edu.cn/zx/zhxw/123992.htm" target="_blank">
+                <img src="{%$rootpath%}bks_recruit/picture/20210731213612600184.jpg" /><span class="bannerTitle"></span>
+            </a>
+        </li>
+        <li>
+            <a href="http://news.bnu.edu.cn/zx/zhxw/123892.htm" target="_blank">
+                <img src="{%$rootpath%}bks_recruit/picture/20210722180442531324.jpg" /><span class="bannerTitle"></span>
+            </a>
+        </li>
+    </ul>
+</div>
+    <span class="review_newsBg"></span>
+    <!-- <div class="review_news"><a href="tt/index.htm">More ></a></div> -->
+    <span class="Banner_bg"></span>
+    <span class="Banner_line"></span>
+</div>
+<!--修改banner结束-->
+<!--content开始-->
+<div class="container">
+    <div class="special-stu">
+        <ul class="reset">
+            <li class="wow zoomIn" data-wow-offset="0" style="visibility: visible; animation-name: zoomIn;">
+                <a href="{%find:type class=160 out=link%}"><span>普通本科生招生</span></a>
+            </li>
+            <li class="wow zoomIn" data-wow-offset="0" style="visibility: visible; animation-name: zoomIn;">
+                <a href="{%find:type class=161 out=link%}"><span>普通中职升本科招生</span></a>
+            </li>
+            <li class="wow zoomIn" data-wow-offset="0" style="visibility: visible; animation-name: zoomIn;">
+                <a href="{%find:type class=162 out=link%}"><span>港澳台招生</span></a>
+            </li>
+            <li class="wow zoomIn" data-wow-offset="0" style="visibility: visible; animation-name: zoomIn;">
+                <a href="{%find:type class=163 out=link%}"><span>普通专升本招生</span></a>
+            </li>
+            <li class="wow zoomIn" data-wow-offset="0" style="visibility: visible; animation-name: zoomIn;">
+                <a href="{%find:type class=164 out=link%}"><span>第二学士学位招生</span></a>
+            </li>
+            <li class="wow zoomIn" data-wow-offset="0" style="visibility: visible; animation-name: zoomIn;">
+                <a href="{%find:type class=165 out=link%}"><span>成人本科招生</span></a>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <div class="row">
+            <div class="col-md-4 link-list">
+                <ul class="reset">
+                    <li class="wow fadeInUp" data-wow-offset="0" style="visibility: visible; animation-name: fadeInUp;">
+                        <i class="ding"></i>
+                        <a href="zsjhlnfs/index.html" class="">
+                            <i class="fa fa-list-ul fa-fw"></i>招生计划历年分数
+                        </a>
+                    </li>
+                    <li class="wow fadeInUp" data-wow-offset="0" style="visibility: visible; animation-name: fadeInUp;">
+                        <i class="ding"></i>
+                        <a href="https://bm.chsi.com.cn/" class="">
+                            <i class="fa fa-user-plus fa-fw"></i>学生在线报名系统
+                        </a>
+                    </li>
+                    <li class="wow fadeInUp" data-wow-offset="0" style="visibility: visible; animation-name: fadeInUp;">
+                        <i class="ding"></i>
+                         <a href="jsjszysp/index.html" class="">
+                            <i class="fa fa-question-circle fa-fw"></i>白云学院宣传视频
+                        </a>
+                    </li>
+                    <li class="wow fadeInUp" data-wow-offset="0" style="visibility: visible; animation-name: fadeInUp;">
+                        <i class="ding"></i>
+                        <a href="http://admissionold.bnu.edu.cn/admission/lqjgcx2021.jsp" target="_blank" class="">
+                            <i class="fa fa-trophy fa-fw"></i>2021录取查询系统
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4 news-list">
+                <div class="news-list-header">
+                    <h3>招生动态</h3>
+                    <a class="more" href="{%find:type class=166 out=link%}">More &gt;&gt;</a>
+                </div>
+                <ul class="reset">
+                    {%get name=list class=mid:11,tid:166,max:6%}
+                    {%forlist from=$array key=i%}
+                    <li class="wow fadeInUp" data-wow-offset="0" style="visibility: visible; animation-name: fadeInUp;">
+                        <a href="{%$array[i].link%}" title="{%$array[i].title%}">{%$array[i].ctitle%}</a>
+                        <time datetime="2021-06-21">
+                            <span class="year-month">{%$array[i].addtime|espcms_timeformat(7)%}</span>
+                            <span class="day">{%$array[i].addtime|espcms_timeformat(11)%}</span>
+                        </time>
+                    </li>
+                    {%/forlist%}
+                    {%/get%}
+                </ul>
+            </div>
+            <div class="col-md-4 news-list">
+                <div class="news-list-header">
+                    <h3>入学须知</h3>
+                    <a class="more" href="{%find:type class=157 out=link%}">More &gt;&gt;</a>
+                </div>
+                <ul class="reset">
+                    {%get name=list class=mid:11,tid:157,max:6%}
+                    {%forlist from=$array key=i%}
+                    <li class="wow fadeInUp" data-wow-offset="0" style="visibility: visible; animation-name: fadeInUp;">
+                        <a href="{%$array[i].link%}" title="{%$array[i].title%}">{%$array[i].ctitle%}</a>
+                        <time datetime="2021-06-21">
+                            <span class="year-month">{%$array[i].addtime|espcms_timeformat(7)%}</span>
+                            <span class="day">{%$array[i].addtime|espcms_timeformat(11)%}</span>
+                        </time>
+                    </li>
+                    {%/forlist%}
+                    {%/get%}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="modeWrap05">
+    <div class="container">
+        <div class="section clear">
+            <div class="col-md-8 lf wow fadeInLeftSmall" data-wow-delay="0.4s">
+                <div class="listTitle01 listTitle05">
+                    <a href="{%find:type class=64 out=link%}"><h3>通知公告</h3></a>
+                </div>
+                <div class="flexslider carousel notice-list">
+                    <ul class="slides">
+                        {%get name=list class=mid:6,tid:64,max:6%}
+                        {%forlist from=$array key=i%}
+                        <li>
+                            <span class="notice-date"><strong>{%$array[i].addtime|espcms_timeformat(11)%}</strong><i>{%$array[i].addtime|espcms_gtimeformat(7,0)%}</i></span>
+                            <div class="notice-txt">
+                                <a href="{%$array[i].link%}" title="{%$array[i].title%}">{%$array[i].ctitle%} </a>
+                            </div>
+                        </li>
+                        {%/forlist%}
+                        {%/get%}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4 wow fadeInLeftSmall" data-wow-delay="0.4s"">
+                <div class="listTitle01 listTitle05">
+                    <a href="{%find:type class=86 out=link%}"><h3>招生政策</h3></a>
+                </div>
+                <div class="notice-list">
+                    <ul class="">
+                        {%get name=list class=mid:2,tid:86,max:3%}
+                        {%forlist from=$array key=i%}
+                            <li class="notice-txt1"><a class="content-clamp1" href="{%$array[i].link%}" title="{%$array[i].title%}">{%$array[i].ctitle%}</a></li>
+                        {%/forlist%}
+                        {%/get%}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--content结束-->
+<!--footer开始-->
+<a href="#" class="goTop">TOP</a>
+
+<footer class="footer">
+	<span>&copy; 版权所有@白云学院 </span> <strong>|</strong>
+    <span>地址：广州市白云区江高镇学苑路1号（西校区）/ 广州市白云区钟落潭镇九佛西路280号（北校区）</span><strong>|</strong>
+    <span><a href="https://beian.miit.gov.cn" style=" color: white;">粤ICP备15092391号-2 </a>  粤公网安备 44011102000160号 </span>
+</footer><!--<script src="{%$rootpath%}bks_recruit/js/modernizr.js"></script>    -->      
+<!--footer结束-->
+<!-- 通用JS -->
+<script type="text/javascript" src="{%$rootpath%}js/jquery-1.9.1.min.js"></script>
+
+<script type="text/javascript" src="{%$rootpath%}bks_recruit/js/jquery.flexslider-min.js"></script>
+<script type="text/javascript" src="{%$rootpath%}bks_recruit/js/script.js"></script>
+<!-- FlexSlider -->
+<script type="text/javascript">
+$(function() {
+    Nav('#nav')//导航
+    SerMax()//搜索
+    ImgHeight()//banner图片高度
+    mobideMenu()// 移动端主导航
+	 $(".banner .flexslider").flexslider({
+		animation:'fade',
+		slideshowSpeed: 6000, //展示时间间隔ms
+		animationSpeed: 1000, //滚动时间ms
+		touch: true //是否支持触屏滑动
+	});
+	 indexLi()//学术动态1225px内小尺寸动态加类名
+	 slides()
+	 var currentWidth = 1240;
+		$(window).resize(function() {
+			slides()
+		});
+	 function slides(){
+	 	var winWidth = $(window).width();
+		var conWidth;
+		if(winWidth < 768) {
+			//$('.mode02 .flexslider').width(winWidth);
+			//conWidth = 300;
+			x = 20;
+		} else if(winWidth < 992) {
+			//$('.mode02 .flexslider').width(winWidth)-60;
+			//conWidth = 660;
+			x = 50;
+		 }else {
+		 	//$('.mode02 .flexslider').width(winWidth);
+			//conWidth = 1400;
+			x = 100;
+		}
+		
+			$(".notice-list.flexslider").flexslider({
+			  animation: "slide",
+		    animationLoop: true,
+		    itemWidth: 325,
+		    itemMargin: x,
+		    minItems: 1,
+		    maxItems: 2,
+        touch: true //是否支持触屏滑动
+		   // pausePlay: true
+			});
+	 	
+	 }
+
+}); 
+
+</script>
+
+<script src="{%$rootpath%}js/wow.min.js"></script>
+<script type="text/javascript"> 
+if(navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.match(/8./i)=="8.") 
+{ 
+  // console.log(1);
+} 
+else{
+  new WOW().init();
+}
+</script>
+<style>
+    /* 单行省略 */
+.content-clamp1 {display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;-webkit-line-clamp: 1;}
+
+</style>
+
+
+
+<!-- <script type="text/javascript">
+	jQuery.ajax({
+		url: '/wm/api/visit/write/site',
+		type: 'get',
+		data: {
+			siteID: '1e3c6ef411cc4ea2a4ef2c82f71be33a'
+		}
+	})
+</script> -->
+
+
+</body></html>

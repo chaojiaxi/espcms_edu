@@ -1,0 +1,91 @@
+<div class="header" >
+    <div class="serWrap">
+        <div id="ser">
+            <div class="ser" >
+                <form name="dataForm" class="search" action="/cms/search/searchResults.jsp" target="_blank" method="post" accept-charset="utf-8" onSubmit="document.charset='utf-8';">
+                    <input name="siteID" value="57" type ="hidden">
+                    <input class="notxt" value="search" name="query" type="text" id="keywords" onFocus="if(value==defaultValue){value='';}" onBlur="if(!value){value=defaultValue;}"
+                     onclick="if(this.value==''){this.value='';this.form.keywords.style.color='#444'}">
+                    <input class="notxt1" name="Submit" type="submit" value="搜索" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="topWrap">
+      <div class="top">
+            <div class="top_lf">
+                <a href="{%find:type class=51 out=link%}" target="_blank">信息公开</a><span>|</span> 
+                <a href="{%find:type class=147 out=link%}" target="_blank">服务中心</a><span>|</span>
+                <a href="{%find:type class=124 out=link%}" target="_blank">教师邮箱</a><span>|</span>
+                <a href="{%find:type class=124 out=link%}" target="_blank">学生邮箱</a>
+            </div>
+            <div class="top_rt">
+                <a href="{%$url%}" target="_blank">白云学院主网</a><span>|</span> 
+                <a href="{%find:type class=59 out=link%}" target="_blank">白云新闻</a><span>|</span> 
+                <a href="http://www.byxy.com/" target="_blank">技师学院</a>&nbsp;&nbsp;<a class="serBtn" href="javascript:void(0)">&nbsp;</a>
+            </div>
+      </div>
+    </div>
+    <div class="nav-wrapper">
+        <div class="logo"><a href="index.htm"><img src="{%$rootpath%}bks_recruit/picture/logo1.png" alt=""></a></div>
+        <div class="logo_bg"><img src="{%$rootpath%}bks_recruit/picture/logo_bg.png" alt=""></div>
+        <div class="nav" id="nav">
+            <ul class="nav_lf">    
+                <li><a href="{%find:type class=93 out=link%}">首页</a></li>
+                <li><a href="javascript:void(0)">学校概况</a>
+				    <dl class="subNav  ">
+                      <dd><a href="{%find:type class=168 out=link%}">学校简介</a></dd>
+                      <dd><a href="{%find:type class=169 out=link%}">校长寄语</a></dd>
+                      <dd><a href="{%find:type class=170 out=link%}">学校环境</a></dd>
+                    </dl>
+				</li>
+                <li><a href="{%find:type class=152 out=link%}">院系介绍</a></li>
+                <li><a href="{%find:type class=153 out=link%}">人才培养</a></li>
+                <li><a href="{%find:type class=154 out=link%}">招生政策</a></li>
+
+
+            </ul>
+            <ul class="nav_rt">
+                <li><a href="{%find:type class=155 out=link%}">计划分数</a></li>
+                <li><a href="javascript:void(0)">录取查询</a>
+                    <dl class="subNav ">
+                        <dd><a href="{%find:type class=171 out=link%}">普通本科录取查询</a></dd>
+                        <dd><a href="{%find:type class=178 out=link%}">成绩查询</a></dd>
+                    </dl>
+                </li>     
+                <li><a href="{%find:type class=157 out=link%}">入学须知</a></li>
+                <li><a href="{%find:type class=176 out=link%}">招生宣传</a></li>
+                <li><a href="{%find:type class=159 out=link%}">奖助体系</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--修改banner开始-->
+<div class="banner">
+    
+    <div class="flexslider">
+    <ul class="slides">
+        <li>
+            <a href="http://news.bnu.edu.cn/zx/ztxw/dsxxjy/index.htm" target="_blank">
+                <img src="{%$rootpath%}bks_recruit/picture/20210707084009106648.jpg" /><span class="bannerTitle"></span>
+            </a>
+        </li>
+        <li>
+            <a href="http://news.bnu.edu.cn/zx/zhxw/123992.htm" target="_blank">
+                <img src="{%$rootpath%}bks_recruit/picture/20210731213612600184.jpg" /><span class="bannerTitle"></span>
+            </a>
+        </li>
+        <li>
+            <a href="http://news.bnu.edu.cn/zx/zhxw/123892.htm" target="_blank">
+                <img src="{%$rootpath%}bks_recruit/picture/20210722180442531324.jpg" /><span class="bannerTitle"></span>
+            </a>
+        </li>
+    </ul>
+</div>
+    <span class="review_newsBg"></span>
+    <!-- <div class="review_news"><a href="tt/index.htm">More ></a></div> -->
+    <span class="Banner_bg"></span>
+    <span class="Banner_line"></span>
+</div>
+<!--修改banner结束-->

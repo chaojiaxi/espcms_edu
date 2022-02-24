@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta content="zh-cn" http-equiv="Content-Language" />
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+		<meta name="renderer" content="webkit"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0,  user-scalable=no"/>
+		<title>{%$lngpack.sitename%}</title>
+		<meta name="keywords" content="{%$lngpack.keyword%}" />
+		<meta name="description" content="{%$lngpack.description%}" />
+		<link rel="icon" type="image/png" href="{%$icon_16%}" sizes="16x16"/>
+		<link rel="icon" type="image/png" href="{%$icon_32%}" sizes="32x32"/>
+		<link rel="icon" type="image/png" href="{%$icon_64%}" sizes="64x64"/>
+		<link href="{%$rootpath%}css/bootstrap.css" rel="stylesheet" type="text/css" />
+		<link href="{%$rootpath%}css/espcmsp8_font.css" rel="stylesheet" type="text/css" />
+		<link href="{%$rootpath%}css/swiper.min.css" rel="stylesheet" type="text/css" />
+		<link href="{%$rootpath%}css/espcmsp8_all.css" rel="stylesheet" type="text/css" />
+		<link href="{%$rootpath%}css/espcms_p8_public.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="{%$rootdir%}espcms_includes/js/jquery.min.js"></script>
+		<script type="text/javascript" src="{%$rootdir%}espcms_includes/js/bootstrap.js"></script>
+		<script type="text/javascript" src="{%$rootdir%}espcms_includes/js/swiper.min.js"></script>
+		<script type="text/javascript" src="{%$rootdir%}espcms_includes/js/espcms_base.js"></script>
+		<script type="text/javascript" src="{%$rootdir%}espcms_includes/js/espcms_formvalidation.js"></script>
+		<script type="text/javascript" src="{%$rootdir%}espcms_includes/js/espcms_dialog.js"></script>
+	</head>
+
+	<body>
+		{%link file="public/head.html"%}
+		<section class="bann_container">
+			<div class="container page_bann_title">
+				<h2>{%$type_read.formgroupname%}</h2>
+				<p>{%$type_read.content%}</p>
+			</div>
+		</section>
+
+		<section class="container espcms_page_book">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-3">
+					{%link file="public/left.html"%}
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-9">
+					{%list name=path class=type:forms,id:$type_read.fgid%}
+					<script type="text/javascript">
+					$(function () {
+						$("#{%$type_read.formcode%}").espcms_formvalidation();
+						$('.dialog_link').espcms_dig();
+					});
+					</script>
+					<div class="espcms_book">
+						<form name="{%$type_read.formcode%}" id="{%$type_read.formcode%}" method="post" class="form-horizontal admin-form" action="{%$formlink.save%}">
+							<input type="hidden" name="tokenname" value="{%$tokenkey.token_name%}"/>
+							<input type="hidden" name="tokenkey" value="{%$tokenkey.token_key%}"/>
+							<input type="hidden" name="fgid" id="fgid" value="{%$type_read.fgid%}"/>
+							<input type="hidden" name="formcode" id="formcode" value="{%$type_read.formcode%}"/>
+							{%if espcms_count($att_array) > 0%}
+							{%forlist from=$att_array key=i%}
+							{%if $att_array[i].inputtype=='string' || $att_array[i].inputtype=='int' || $att_array[i].inputtype=='float' || $att_array[i].inputtype=='decimal'%}
+							<div class="form-group {%$att_array[i].attrname%}">
+								<label class="col-sm-2 control-label">{%$att_array[i].typename%}</label>
+								<div class="col-sm-9">
+									<input type="text" name="{%$att_array[i].attrname%}" class="form-control" id="{%$att_array[i].attrname%}" placeholder="{%$att_array[i].typeremark%}" title="{%$att_array[i].typeremark%}" {%if $att_array[i].isvalidate==1%} data-validation="{%$att_array[i].validatetext%}"{%/if%} data-validation-msg="{%$att_array[i].validate_str%}" />
+								</div>
+							</div>
+							{%/if%}
+							{%if $att_array[i].inputtype=='text' || $att_array[i].inputtype=='htmltext'%}
+							<div class="form-group {%$att_array[i].attrname%}">
+								<label class="col-sm-2 control-label">{%$att_array[i].typename%}</label>
+								<div class="col-sm-9">
+									<textarea name="{%$att_array[i].attrname%}" class="form-control" style="width:100%;height:{%$att_array[i].attrrow%}px" id="{%$att_array[i].attrname%}" placeholder="{%$att_array[i].typeremark%}" title="{%$att_array[i].typeremark%}" {%if $att_array[i].isvalidate==1%} data-validation="{%$att_array[i].validatetext%}"{%/if%} data-validation-msg="{%$att_array[i].validate_str%}"></textarea>
+								</div>
+							</div>
+							{%/if%}
+							{%if $att_array[i].inputtype=='addon' || $att_array[i].inputtype=='img'%}
+							<div class="form-group {%$att_array[i].attrname%}">
+								<label class="col-sm-2 control-label">{%$att_array[i].typename%}</label>
+								<div class="col-sm-9">
+									<div class="input-group">
+										<input type="text" name="{%$att_array[i].attrname%}" class="form-control" id="{%$att_array[i].attrname%}" placeholder="{%$att_array[i].typeremark%}" title="{%$att_array[i].typeremark%}" data-display-type="top" {%if $att_array[i].isvalidate==1%} data-validation="{%$att_array[i].validatetext%}"{%/if%} data-validation-msg="{%$att_array[i].validate_str%}" />
+										<span class="input-group-btn">
+											 <a data-w="600px" data-h="310px" data-url="{%$att_array[i].uploadlink%}" data-title="上传文件" class="btn btn-warning dialog_link">上传文件</a>
+										</span>
+									</div>
+								</div>
+							</div>
+							{%/if%}
+							{%if $att_array[i].inputtype=='datetime' || $att_array[i].inputtype=='date'%}
+								<div class="form-group {%$att_array[i].attrname%}">
+									<label class="col-sm-2 control-label">{%$att_array[i].typename%}</label>
+									<div class="col-sm-9">
+										<input type="text" name="{%$att_array[i].attrname%}" class="form-control {%$att_array[i].inputtype%}" id="{%$att_array[i].attrname%}" placeholder="{%$att_array[i].typeremark%}" title="{%$att_array[i].typeremark%}" {%if $att_array[i].isvalidate==1%} data-validation="{%$att_array[i].validatetext%}"{%/if%} data-validation-msg="{%$att_array[i].validate_str%}"/>
+									</div>
+								</div>
+							{%/if%}
+							{%if $att_array[i].inputtype=='select'%}
+							<div class="form-group {%$att_array[i].attrname%}">
+								<label class="col-sm-2 control-label">{%$att_array[i].typename%}</label>
+								<div class="col-sm-9">
+									<select class="selectpicker form-control" name="{%$att_array[i].attrname%}" id="{%$att_array[i].attrname%}" data-size="8" {%if $att_array[i].isvalidate==1%}data-validation="{%$att_array[i].validatetext%}"{%/if%} data-validation-msg="{%$att_array[i].validate_str%}" title="{%pack:public_pack-espcms_select_title%}{%$att_array[i].typename%}">
+										{%forlist from=$att_array[i].attrvalue key=ii%}
+										<option value="{%$att_array[i].attrvalue[ii].name%}" {%$att_array[i].attrvalue[ii].selected%}>{%$att_array[i].attrvalue[ii].name%}</option>
+										{%/forlist%}
+									</select>
+								</div>
+							</div>
+							{%/if%}
+							{%if $att_array[i].inputtype=='radio'%}
+							<div class="form-group {%$att_array[i].attrname%}">
+								<label class="col-sm-2 control-label">{%$att_array[i].typename%}</label>
+								<div class="col-sm-9 pt6">
+									{%forlist from=$att_array[i].attrvalue key=ii%}
+									<input type="radio" name="{%$att_array[i].attrname%}" value="{%$att_array[i].attrvalue[ii].name%}" {%if $att_array[i].attrvalue[ii].selected=='selected'%}checked{%/if%}/><span class="pr10">{%$att_array[i].attrvalue[ii].name%}</span>
+									{%/forlist%}
+								</div>
+							</div>
+							{%/if%}
+							{%if $att_array[i].inputtype=='checkbox'%}
+							<div class="form-group {%$att_array[i].attrname%}">
+								<label class="col-sm-2 control-label">{%$att_array[i].typename%}</label>
+								<div class="col-sm-9 pt6">
+									{%forlist from=$att_array[i].attrvalue key=ii%}
+									<input type="checkbox" name="{%$att_array[i].attrname%}[]" value="{%$att_array[i].attrvalue[ii].name%}" {%if $att_array[i].attrvalue[ii].selected=='selected'%}checked{%/if%}/><span class="pr10">{%$att_array[i].attrvalue[ii].name%}</span>
+									{%/forlist%}
+								</div>
+							</div>
+							{%/if%}
+							{%/forlist%}
+							{%/if%}
+							{%if $type_read.isseccode%}
+							<div class="form-group">
+								<label for="title" class="col-sm-2 control-label">验证码</label>
+								<div class="col-sm-9">
+									<div class="col-sm-8 col-md-8 col-mm-8 p0">
+										<input type="text" name="seccode" class="form-control" style="text-transform: uppercase;" id="seccode" data-validation="^[A-Za-z]{4}$" placeholder="请输入4位英文字符的验证码" title="请输入4位英文字符的验证码" maxlength="4" data-validation-msg="错误：验证码输入错误，请输入4位英文字符的验证码">
+									</div>
+									<div class="col-sm-4 col-md-4 col-mm-4 pl0">
+										<img title="点击更换验证码" id="{%$type_read.formcode%}_code" onclick="sessionimg('{%$type_read.formcode%}_code', '{%$rootdir%}')" src="{%$seccodelink%}" class="img-rounded" style="cursor: pointer;height:32px;" align="absmiddle"/>
+									</div>
+								</div>
+							</div>
+							{%/if%}
+							<div class="form-group">
+								<label class="col-sm-2 control-label"></label>
+								<div class="col-sm-9">
+									<input type="submit" class="btn btn-success" formmethod="POST" value="确认提交"/>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		{%link file="public/footer.html"%}
+	</body>
+</html>

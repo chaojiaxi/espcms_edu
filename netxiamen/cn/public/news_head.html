@@ -1,0 +1,85 @@
+<!-- header -->
+<style>
+.news_header{
+	background: linear-gradient(to right, #122e66, #1748ab, #122e66);
+}
+</style>
+<header class="header news_header">
+    <div class="fixline"></div>
+    <div class="container clearfix">
+        <div class="fl left">
+            <!-- logo图片切换 -->
+            <a href="#">
+                <img src="{%$rootpath%}images/picture/baiyun4.png" alt="" class="img1" />
+            </a>
+            <a href="#">
+                <img src="{%$rootpath%}images/picture/baiyun1.png" alt="" class="img2" />
+            </a>
+        </div>
+        <div class="fr nav">
+            <div class="btn-all">
+                <div class="status">
+                    <!-- {%get name=bann class=atid:11,adtype:3,max:10%} {%forlist from=$array key=i%}
+                    <span><a href="{%$array[i].link%}" title="{%$array[i].title%}">{%$array[i].title%}</a></span> 
+                    {%/forlist%} {%/get%} -->
+                    <span><a href="http://10.16.212.253/1_lei-code_com/" title="白云主页">白云主页</a></span> 
+                    <span><a href="{%find:type class=117 out=link%}" title="新闻投稿">新闻投稿</a></span> 
+                </div>
+            </div>
+
+
+            <ul class="navbar_nav" data-in="fadeInDown" data-out="fadeOutUp">
+                <li class="dropdown"> <a href="{%find:type class=59 out=link%}" title="首页">首页</a>
+                </li>
+                <!-- {%forlist from=$array key=i%}
+                <li class="dropdown dropdown_slideDown {%if $array[i].hover==1%}active{%/if%}">
+                    {% if espcms_count((array) $array[i].childArray ) > 0 %} 
+                    <a  href="javascript:void(0);" {%if $array[i].nevigate_target==1%} target="_blank" {%/if%} class="a_animate" title="{%$array[i].title%}" ><span>{%$array[i].title%}</span></a>
+                    <div class="dropdown_menu">
+                        {%forlist from=$array[i].childArray key=ii%}
+                        <a href="{%$array[i].childArray[ii].link%}" title="{%$array[i].childArray[ii].title%}">{%$array[i].childArray[ii].title%}</a>
+                        {%/forlist%}
+                        
+                    </div>
+                    {%else%}
+                    <a href="{%$array[i].title%}" title="{%$array[i].link%}">{%$array[i].title%}</a>
+
+                    {%/if%}
+                </li>
+                {%/forlist%} -->
+                
+                <li class="dropdown dropdown_slideDown"> <a class="a_animate" href="{%find:type class=60 out=link%}" title="焦点新闻"><span>焦点新闻</span></a></li>
+                <li class="dropdown dropdown_slideDown"> <a class="a_animate" href="javascript:void(0);" title="新闻纵横"><span>新闻纵横</span></a>
+                    <div class="dropdown_menu">
+                        <a href="{%find:type class=108 out=link%}" title="党的建设">党的建设</a>
+                        <a href="{%find:type class=109 out=link%}" title="立德树人">立德树人</a>
+                        <a href="{%find:type class=110 out=link%}" title="学科建设">学科建设</a>
+                        <a href="{%find:type class=111 out=link%}" title="师资队伍">师资队伍</a>
+                        <a href="{%find:type class=175 out=link%}" title="科学研究">科学研究</a>
+                        <a href="{%find:type class=113 out=link%}" title="社会服务">社会服务</a>
+                    </div>
+                </li>
+                <li class="dropdown dropdown_slideDown"> <a class="a_animate" href="{%find:type class=62 out=link%}" title="媒体白云"><span>媒体白云</span></a></li>
+                <li class="dropdown dropdown_slideDown"> <a class="a_animate" href="javascript:void(0);" title="专题报道"><span>专题报道</span></a>
+                    <div class="dropdown_menu">
+                        <a href="{%find:type class=73 out=link%}" title="党史学习教育">党史学习教育</a>
+                        <a href="{%find:type class=74 out=link%}" title="周年相册">周年相册</a>
+                        <a href="{%find:type class=75 out=link%}" title="聚焦课程思政">聚焦课程思政</a>
+                        <a href="{%find:type class=76 out=link%}" title="身边好老师">身边好老师</a>
+                        <a href="{%find:type class=77 out=link%}" title="学子风采">学子风采</a>
+                        <a href="{%find:type class=78 out=link%}" title="校地情缘">校地情缘</a>
+
+
+                    </div>
+                </li>
+                <li class="dropdown dropdown_slideDown"> <a class="a_animate" href="{%find:type class=64 out=link%}" title="通知公告"><span>通知公告</span></a></li>
+                <li class="dropdown dropdown_slideDown"> <a class="a_animate" href="{%find:type class=65 out=link%}" title="视频视角"><span>视频视角</span></a></li>
+                <li class="dropdown dropdown_slideDown"> <a class="a_animate" href="{%find:type class=66 out=link%}" title="文化白云"><span>文化白云</span></a></li>
+
+            </ul>
+
+        </div>
+        <a href="javascript:void(0)" id="navToggle"> <span></span>
+        </a>
+    </div>
+</header>

@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+	<div class="panel-heading espcms_page_navigation_title"><h4>新闻动态</h4></div>
+	<div class="panel-body">
+		<ul class="list-group espcms_page_infolist">
+			{%get name=list class=mid:2,max:6%}
+			{%forlist from=$array key=i%}
+			<li class="list-group-item">
+				<a class="link_4242_der" title="{%$array[i].title%}" href="{%$array[i].link%}">{%$array[i].ctitle|espcms_cutstr(15)%}</a>
+			</li>
+			{%/forlist%}
+			{%/get%}
+		</ul>
+	</div>
+</div>
+
+<div class="panel panel-default">
+	<div class="panel-heading espcms_page_navigation_title"><h4>联系我们</h4></div>
+	<div class="panel-body">
+		<address class="espcms_address">
+			<strong>洪湖尔创网联信息技术有限公司</strong><br/>
+			地址：湖北省洪湖市锦绣东城5号楼<br/>
+			咨询电话：0716-2209455<br/>手机：18665655030<br/>
+			E-mail：sv@ecsip.cn<br/>
+		</address>
+	</div>
+</div>

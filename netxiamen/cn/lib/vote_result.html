@@ -1,0 +1,37 @@
+{%forlist from=$vote_array key=i%}
+<div class="mian_title">
+	<p class="t">投票主题：{%$vote_array[i].vote_title%}</p>
+	<p class="s text-danfei">{%$vote_array[i].selectmax%} | {%if $vote_array[i].vote_istime%}投票结束时间：{%$vote_array[i].vote_endtime|espcms_timeformat(9)%}{%else%}不限时{%/if%}</p>
+	{%if $vote_array[i].is_view_vote==1%}<p class="v">投票参与人数：<span class="c"><span id="vote_count_str">{%$vote_array[i].vote_count%}</span>人</span></p>{%/if%}
+</div>
+<ul class="vote_surList" id="vote_surList_{%$vote_array[i].vote_id%}">
+	{%forlist from=$vote_array[i].vote_itme_array key=ii%}
+	<li class="vote_item">
+		<span class="voteTxt">
+			{%if $vote_array[i].is_vote && $vote_array[i].is_vote_time %}
+			{%if $vote_array[i].vote_selectmax==1%}
+			<input type="radio" name="vote_item_log_id[{%$vote_array[i].vote_id%}][]" class="vote_item_log_id_{%$vote_array[i].vote_id%}" value="{%$vote_array[i].vote_itme_array[ii].vote_item_id%}"/>
+			{%else%}
+			<input type="checkbox" name="vote_item_log_id[{%$vote_array[i].vote_id%}][]" class="vote_item_log_id_{%$vote_array[i].vote_id%}" value="{%$vote_array[i].vote_itme_array[ii].vote_item_id%}"/>
+			{%/if%}
+			{%/if%}
+			{%$vote_array[i].vote_itme_array[ii].vote_item_title%}
+		</span>
+		{%if $vote_array[i].is_view_vote==1%}
+		<div class="voteResult">
+			<p class="signbox">
+				<span class="bar"><em class="sgn_{%key=>i%} sgnTie" style="width:{%$vote_array[i].vote_itme_array[ii].vote_item_percentum%}%;"></em></span>
+				<span class="ct">{%$vote_array[i].vote_itme_array[ii].vote_item_percentum%}%</span>
+				<strong class="percent">{%$vote_array[i].vote_itme_array[ii].vote_item_count_str%}</strong>
+			</p>
+		</div>
+		{%/if%}
+	</li>
+	{%/forlist%}
+</ul>
+{%/forlist%}
+{%if $vote_submit%}
+<div class="vote_bottom" id="vote_bottom">
+	<button type="submit" class="button blue2" formmethod="POST">投票</button>
+</div>
+{%/if%}

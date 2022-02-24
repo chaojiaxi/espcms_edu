@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%$lngpack.sitename%}</title>
+    <meta name="keywords" content="{%$lngpack.keyword%}" />
+    <meta name="description" content="{%$lngpack.description%}" />
+    <link rel="icon" type="image/png" href="{%$icon_32%}" sizes="32x32" />
+    <!-- <link href="{%$rootpath%}css/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="{%$rootpath%}css/public.css" rel="stylesheet" type="text/css" /> -->
+    <link href="{%$rootpath%}css/index.css" rel="stylesheet" type="text/css" />
+    <!-- datetimepicker -->
+    <!-- <link href="{%$rootpath%}css/datetimepicker.css" rel="stylesheet"> -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/jquery-datetimepicker/2.5.9/jquery.datetimepicker.css" rel="stylesheet">
+
+
+    <!-- Bootstrap -->
+    <link href="{%$rootpath%}css/bootstrap.min.css" rel="stylesheet">
+    <!-- animate.css -->
+    <link href="{%$rootpath%}css/animate.css" rel="stylesheet">
+    <!-- Fonts -->
+    <!-- Plugins -->
+    <!-- Icons -->
+    <link href="{%$rootpath%}css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="{%$rootpath%}css/responsiveslides.css">
+    <link href="{%$rootpath%}css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{%$rootpath%}css/index.vsb.css" />
+
+    <!-- Global style (main) -->
+    <link href="{%$rootpath%}css/home.css" rel="stylesheet">
+    <!-- Global style(content) -->
+    <link href="{%$rootpath%}css/content.css" rel="stylesheet">
+    <!-- 通用 -->
+    <link href="{%$rootpath%}css/public.css" rel="stylesheet">
+    <!-- 单页css -->
+    <link href="{%$rootpath%}css/danye.css" rel="stylesheet">
+    <!-- magnify查看图片插件 -->
+    <link href="{%$rootpath%}js/lightgalleryjs/jquery.magnify.min.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+    {%link file="public/header.html"%}
+
+    <div class="main">
+        <!--左菜单-->
+        <div class="container listcolumn">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="nav-menu-1">
+                                        <div class="nav-menu-2">
+                                            {%get name=typelist class=utid:$type.topid,tid:$type.tid%}
+                                            <div class="nav-menu">
+                                                <div class="nav-menu-title">
+                                                    {%$uptypeview.typename%}
+                                                </div>
+                                                <ul>
+                                                    {%forlist from=$array key=i%} 
+                                                    {%if $array[i].selected=='selected'%}
+                                                    <li class="cur"><a href="{%$array[i].link%}" title="{%$array[i].typename%}">{%$array[i].typename%}</a></li>
+                                                    {%else%}
+                                                    <li><a href="{%$array[i].link%}" title="{%$array[i].typename%}">{%$array[i].typename%}</a>
+                                                    </li>
+                                                    {%/if%} {%/forlist%}
+                
+                                                </ul>
+                                            </div>
+                                            {%/get%}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="row pd50">
+                                <!-- 当前位置 -->
+                                {%list name=path class=type:doc,id:$type.tid%} 
+                                <div class="content">
+                                    <div class="path-title">
+                                        {%$read.title%}
+                                    </div>
+
+                                    <div class="content2">
+                                        <ul class="" id="my-gallery-container">
+                                            {%forlist from=$array key=i%}
+                                            <li   class="item" data-src="{%$array[i].pic%}" data-order="30">
+                                                <!-- 添加插件，图片显示 -->
+                                                <a href="{%$array[i].pic%}" title="{%$array[i].title%}" data-magnify="gallery">
+                                                    <img src="{%$array[i].pic%}">
+                                                </a>
+                                            </li>
+                                            {%/forlist%}
+                                        </ul>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {%link file="public/footer.html"%}
+    <!-- 视频弹框 end-->
+    <!-- Core -->
+    <script type="text/javascript" src="{%$rootpath%}js/zepto.min.js"></script>
+    <!-- swiper轮播图 -->
+    <script type="text/javascript" src="{%$rootpath%}js/swiper.js"></script>
+    <!-- jquery-1.9.1 -->
+    <script type="text/javascript" src="{%$rootpath%}js/jquery-1.9.1.min.js"></script>
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.6.1/jquery.min.js"></script> -->
+    <!-- magnify查看图片插件 -->
+    <script type="text/javascript" src="{%$rootpath%}js/lightgalleryjs/jquery.magnify.min.js"></script>
+    <!-- bootstrap -->
+    <script type="text/javascript" src="{%$rootpath%}css/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Plugins: Sorted A-Z -->
+    <script type="text/javascript" src="{%$rootpath%}js/menu.js"></script>
+    <!-- 回到顶点插件 -->
+    <script type="text/javascript" src="{%$rootpath%}js/totop.js"></script>
+    <!-- jQuery自动轮插件jquery.SuperSlide -->
+    <script type="text/javascript" src="{%$rootpath%}js/jquery.superslide.js"></script>
+    <!--  jQuery幻灯片插件 -->
+    <script type="text/javascript" src="{%$rootpath%}js/responsiveslides.min.js"></script>
+    <!-- Zepto.js 移动JavaScript框架 -->
+    <script type="text/javascript" src="{%$rootpath%}js/style.js"></script>
+    <!-- 动画特效 -->
+    <script type="text/javascript" src="{%$rootpath%}js/wow.js"></script>
+    <!-- tabs hover事件 -->
+    <script type="text/javascript" src="{%$rootpath%}js/jquery.tabslet.min.js"></script>
+    <!-- datetimepicker日期插件 -->
+    <!-- <script type="text/javascript" src="{%$rootpath%}js/jquery.datetimepicker.full.min.js"></script> -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery-datetimepicker/2.5.9/jquery.datetimepicker.full.min.js"></script>
+    <!-- 瀑布流插件 -->
+    <script type="text/javascript" src="{%$rootpath%}js/bootstrap-waterfall.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ( $ ) {
+            $("#my-gallery-container").mpmansory(
+                {
+                    childrenClass: 'item', // default is a div
+                    columnClasses: 'padding', //add classes to items
+                    breakpoints:{
+                        lg: 3, 
+                        md: 4, 
+                        sm: 6,
+                        xs: 12
+                    },
+                    distributeBy: { order: false, height: false, attr: 'data-order', attrOrder: 'asc' }, //default distribute by order, options => order: true/false, height: true/false, attr => 'data-order', attrOrder=> 'asc'/'desc'
+                    onload: function (items) {
+                        //make somthing with items
+                    } 
+                }
+            );
+        });
+    </script>
+    <script>
+        // 初始化magnify查看图片插件
+        $("[data-magnify=gallery]").magnify();  
+    </script>
+</body>
+
+</html>

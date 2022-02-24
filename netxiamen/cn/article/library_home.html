@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <title>{%$lngpack.sitename%}</title>
+    <meta name="keywords" content="{%$lngpack.keyword%}" />
+    <meta name="description" content="{%$lngpack.description%}" />
+    <!-- <link rel="icon" type="image/png" href="{%$icon_16%}" sizes="16x16"/>
+    <link rel="icon" type="image/png" href="{%$icon_32%}" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="{%$icon_64%}" sizes="64x64"/> -->
+    <!-- Bootstrap -->
+    <link href="{%$rootpath%}tushuguan/css/bootstrap.css" rel="stylesheet">
+    <link href="{%$rootpath%}css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <!-- Icons -->
+    <link href="{%$rootpath%}css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="{%$rootpath%}tushuguan/css/style.css">
+	<link rel="stylesheet" href="{%$rootpath%}css/pubilc.css">
+</head>
+	<body>
+		{%link file="public/tushuguan/head.html"%} 
+		<main>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-7 padding-left">
+						<!-- 资源导航 -->
+						<div class="zy">
+							<div class="title clearfix">
+								<strong>资源导航</strong>
+								<a href="{%find:type class=135 out=link%}">MORE<span>&gt;&gt;</span></a>
+							</div>
+							<ul class="nav nav-tabs" role="tablist">
+								<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">馆藏资源</a></li>
+								<li role="presentation"><a href="#use" aria-controls="use" role="tab" data-toggle="tab">试用资源</a></li>
+								<li role="presentation"><a href="#free" aria-controls="free" role="tab" data-toggle="tab">共享资源</a></li>
+							</ul>
+							<div class="tab-content">
+								<div role="tabpanel" class="tab-pane active" id="home">
+									{%get name=list class=mid:10,tid:136,max:10%}
+									<div class="kuang">
+										{%forlist from=$array key=i%}
+										<a href="{%if $array[i].downfile!=''%}{%$rootdir%}{%$array[i].downfile%}{%else%}{%$array[i].link%}{%/if%}" title="{%$array[i].title%}">
+											<dl>
+												<dt><img src="{%$array[i].ziyuan|zoom(105,75)%}" alt=""></dt>
+												<dd>
+													<p>
+														<span>{%$array[i].ctitle%}</span>
+														<span>{%$array[i].longtitle|espcms_cutstr(7,'...')%}</span>
+													</p>
+												</dd>
+											</dl>
+										</a>
+										{%/forlist%}
+									</div>
+									{%/get%}
+								</div>
+								<div role="tabpanel" class="tab-pane" id="use">
+									{%get name=list class=mid:10,tid:137,max:10%}
+									<div class="kuang">
+										{%forlist from=$array key=i%}
+										<a href="{%if $array[i].downfile!=''%}{%$rootdir%}{%$array[i].downfile%}{%else%}{%$array[i].link%}{%/if%}" title="{%$array[i].title%}">
+											<dl>
+												<dt><img src="{%$array[i].ziyuan|zoom(105,75)%}" alt=""></dt>
+												<dd>
+													<p>
+														<span>{%$array[i].ctitle%}</span>
+														<span>{%$array[i].longtitle|espcms_cutstr(7,'...')%}</span>
+													</p>
+												</dd>
+											</dl>
+										</a>
+										{%/forlist%}
+									</div>
+									{%/get%}
+								</div>
+								<div role="tabpanel" class="tab-pane" id="free">
+									{%get name=list class=mid:10,tid:138,max:10%}
+									<div class="kuang">
+										{%forlist from=$array key=i%}
+										<a href="{%if $array[i].downfile!=''%}{%$rootdir%}{%$array[i].downfile%}{%else%}{%$array[i].link%}{%/if%}" title="{%$array[i].title%}">
+											<dl>
+												<dt><img src="{%$array[i].ziyuan|zoom(105,75)%}" alt=""></dt>
+												<dd>
+													<p>
+														<span>{%$array[i].ctitle%}</span>
+														<span>{%$array[i].longtitle|espcms_cutstr(7,'...')%}</span>
+													</p>
+												</dd>
+											</dl>
+										</a>
+										{%/forlist%}
+									</div>
+									{%/get%}
+								</div>
+							</div>
+						</div>
+						<!-- 新书推荐 -->
+						<div class="nb">
+							<div class="title clearfix">
+								<strong>新书推荐</strong>
+								<a href="{%find:type class=140 out=link%}">MORE<span>&gt;&gt;</span></a>
+							</div>
+							<div class="newBook swiper-container">
+								<div class="swiper-wrapper">
+									{%get name=list class=mid:10,tid:140,max:12%}
+									{%forlist from=$array key=i%}
+									<div class="swiper-slide">
+										<a class="book" href="{%if $array[i].downfile!=''%}{%$rootdir%}{%$array[i].downfile%}{%else%}{%$array[i].link%}{%/if%}">
+											<img src="{%$array[i].newbooks|zoom(140,180)%}" alt="">
+											<div class="cont">
+												<strong>{%$array[i].title|espcms_cutstr(10,'')%}</strong>
+												<p>索书号：{%$array[i].suoshuhao|espcms_cutstr(6,'')%}</p>
+												<p>{%$array[i].zuozhe|espcms_cutstr(5,'')%} 著</p>
+												<p>{%$array[i].chubanshe|espcms_cutstr(10,'')%}</p>
+											</div>
+										</a>
+									</div>
+									{%/forlist%}
+									{%/get%}
+								</div>
+								<div class="newBook-pagination"></div>
+							</div>
+						</div>
+						<!-- 服务指南 -->
+						<div class="guide">
+							<div class="title clearfix">
+								<strong>服务指南</strong>
+							</div>
+							<div class="list">
+								<ul class="clearfix">
+									<li>
+										<a href="{%find:type class=124 out=link%}">
+											<em class="open"></em>
+											<span>开放时间</span>
+										</a>
+									</li>
+									<li>
+										<a href="{%find:type class=125 out=link%}">
+											<em class="gcfb"></em>
+											<span>馆藏分布</span>
+										</a>
+									</li>
+									<li>
+										<a href="http://192.168.68.26/NTRdrLogin.aspx">
+											<em class="xj"></em>
+											<span>图书续借</span>
+										</a>
+									</li>
+									<li>
+										<a href="http://lib.baiyunu.edu.cn/upfile/2018/08/31/20180831112356_147.doc">
+											<em class="xszn"></em>
+											<span>新生指南</span>
+										</a>
+									</li>
+									<li>
+										<a href="{%find:type class=127 out=link%}">
+											<em class="fl"></em>
+											<span>图书分类</span>
+										</a>
+									</li>
+									<li>
+										<a href="{%find:type class=126 out=link%}">
+											<em class="faq"></em>
+											<span>FAQ</span>
+										</a>
+									</li>
+									<li>
+										<a href="http://lib.baiyunu.edu.cn/html/cn/xinwendongtai/733.html">
+											<em class="north"></em>
+											<span>北区分馆</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<em class="jz"></em>
+											<span>书刊捐赠</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<em class="fc"></em>
+											<span>本馆风采</span>
+										</a>
+									</li>
+									<li>
+										<a href="http://lib1.baiyunu.edu.cn//upfile/2021/03/10/90b5b6e445e2ac4f876750e1e7b299b2.xls">
+											<em class="jian"></em>
+											<span>读者荐购</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<em class="downloads"></em>
+											<span>公开下载</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<em class="links"></em>
+											<span>友情链接</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-5 padding-right">
+						<div class="bann swiper-container">
+							<div class="swiper-wrapper">
+								{%get name=list class=mid:10,tid:141,max:4%}
+								{%forlist from=$array key=i%}
+								<div class="swiper-slide">
+									<a href="{%if $array[i].downfile!=''%}{%$rootdir%}{%$array[i].downfile%}{%else%}{%$array[i].link%}{%/if%}">
+										<span>{%$array[i].title%}</span>
+										<img width="473" height="310" src="{%$rootdir%}{%$array[i].newspic%}" alt="">
+									</a>
+								</div>
+								{%/forlist%}
+								{%/get%}
+							</div>
+							<div class="bann-pagination"></div>
+						</div>
+						<div class="notice">
+							<div class="title clearfix">
+								<strong data-name="tongzhi">新闻通知</strong>
+								<strong data-name="dongtai">资源动态</strong>
+								<em></em>
+								<a class="more" href="{%find:type class=139 out=link%}">MORE<span>&gt;&gt;</span></a>
+							</div>
+							<div>
+								<div class="cont" data-show="tongzhi">
+									{%get name=list class=mid:10,tid:139,max:6%}
+									<ul>
+										{%forlist from=$array key=i%}
+										<li>
+											<div class="col-lg-3 col-xs-3 date text-center">
+												<span>{%$array[i].addtime|timeformat(2,'-')%}</span>
+											</div>
+											<div class="col-lg-9 col-xs-9">
+												<a href="{%if $array[i].downfile!=''%}{%$rootdir%}{%$array[i].downfile%}{%else%}{%$array[i].link%}{%/if%}" title="{%$array[i].title%}">{%$array[i].title|cutstr(17,'...')%}</a>
+											</div>
+										</li>
+										{%/forlist%}
+									</ul>
+									{%/get%}
+								</div>
+								<div class="cont" data-show="dongtai">
+									{%get name=list class=mid:10,tid:135,max:6%}
+									<ul>
+										{%forlist from=$array key=i%}
+										<li>
+											<div class="col-lg-3 col-xs-3 date text-center">
+												<span>{%$array[i].addtime|timeformat(2,'-')%}</span>
+											</div>
+											<div class="col-lg-9 col-xs-9">
+												<a href="{%if $array[i].downfile!=''%}{%$rootdir%}{%$array[i].downfile%}{%else%}{%$array[i].link%}{%/if%}" title="{%$array[i].title%}">{%$array[i].title|cutstr(17,'...')%}</a>
+											</div>
+										</li>
+										{%/forlist%}
+									</ul>
+									{%/get%}
+								</div>
+							</div>
+						</div>
+						<div class="lianmeng">
+							<a href="http://www.ucdrs.net/"><b><img src="{%$rootpath%}tushuguan/images/lianmeng.png" alt=""></b>全国图书馆参考咨询联盟</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		{%link file="public/tushuguan/footer.html"%}
+		<!-- js -->
+		<!-- swiper轮播图 -->
+		<script type="text/javascript" src="{%$rootpath%}js/swiper.js"></script>
+		<!-- jquery-1.9.1 -->
+		<script type="text/javascript" src="{%$rootpath%}js/jquery-1.9.1.min.js"></script>
+		<!-- bootstrap5 -->
+		<script type="text/javascript" src="{%$rootpath%}css/bootstrap/js/bootstrap.min.js"></script>
+        <!-- 图书js -->
+		<script src="{%$rootpath%}tushuguan/js/all.js"></script>
+	</body>
+</html>

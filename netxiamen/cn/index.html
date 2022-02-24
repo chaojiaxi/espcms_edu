@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%$lngpack.sitename%}</title>
+    <meta name="keywords" content="{%$lngpack.keyword%}" />
+    <meta name="description" content="{%$lngpack.description%}" />
+    <link rel="icon" type="image/png" href="{%$icon_32%}" sizes="32x32" />
+    <!-- <link href="{%$rootpath%}css/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="{%$rootpath%}css/public.css" rel="stylesheet" type="text/css" /> -->
+    <link href="{%$rootpath%}css/index.css" rel="stylesheet" type="text/css" />
+    <!-- datetimepicker -->
+    <!-- <link href="{%$rootpath%}css/datetimepicker.css" rel="stylesheet"> -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/jquery-datetimepicker/2.5.9/jquery.datetimepicker.css" rel="stylesheet">
+
+    
+    <!-- Bootstrap -->
+    <link href="{%$rootpath%}css/bootstrap.min.css" rel="stylesheet">
+    <!-- animate.css -->
+    <link href="{%$rootpath%}css/animate.css" rel="stylesheet">
+    <!-- Fonts -->
+    <!-- Plugins -->
+    <!-- Icons -->
+    <link href="{%$rootpath%}css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="{%$rootpath%}css/responsiveslides.css">
+    <link href="{%$rootpath%}css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{%$rootpath%}css/index.vsb.css" />
+
+    <!-- Global style (main) -->
+    <link href="{%$rootpath%}css/home.css" rel="stylesheet">
+    <link href="{%$rootpath%}css/public.css" rel="stylesheet">
+
+    <link href="{%$rootpath%}css/date.css" rel="stylesheet">
+
+   
+</head>
+
+<body>
+    <!-- 右侧百年大计标志 -->
+    <div class="side">
+        <div class="side-bg"></div>
+        <a href="javascript:void(0);" target="_blank">
+            <img src="{%$rootpath%}images/picture/logo30-1.png" />
+        </a>
+        <div class="side-title"><a href="#" target="_blank">探索百年大计<i class="fa fa-lg fa-arrow-right"></i></a>
+        </div>
+    </div>
+    <!-- header -->
+    <header class="header">
+        <div class="fixline"></div>
+        <div class="container clearfix">
+            <div class="fl left">
+                <!-- logo图片切换 -->
+                <a href="#">
+                    <img src="{%$rootpath%}images/picture/baiyun4.png" alt="" class="img1" />
+                </a>
+                <a href="#">
+                    <img src="{%$rootpath%}images/picture/baiyun1.png" alt="" class="img2" />
+                </a>
+            </div>
+            <!-- 导航栏 -->
+            <div class="fr nav">
+                <div class="btn-all">
+                    <div class="status">
+                        {%get name=bann class=atid:7,adtype:3,max:10%} {%forlist from=$array key=i%}
+                        <span><a href="{%$array[i].link%}" title="{%$array[i].title%}" target="_blank">{%$array[i].title%}</a></span> 
+                        {%/forlist%} {%/get%}
+                    </div>
+                    <div class="lang"> 
+                        <a href="#" target="_blank"><i class="fa fa-lg fa-globe-asia" style="font-weight: bold;">简单中文&nbsp;&nbsp;-&nbsp;&nbsp;</i></a>
+                        <a href="#" target="_blank"><i class="fa fa-lg fa-globe-asia" style="font-weight: bold;">English</i></a>
+                    </div>
+                </div>
+
+                {%get name=nav class=path:$path,current:$current,hover_id:$hover_id,doc_id:$doc_id,child:3,ismenu:1,ishome:0%}
+
+                <ul class="navbar_nav" data-in="fadeInDown" data-out="fadeOutUp">
+                    <li class="dropdown"> <a href="{%$url%}" title="首页">首页</a>
+                    </li>
+                    {%forlist from=$array key=i%}
+                    <li class="dropdown dropdown_slideDown {%if $array[i].hover==1%}active{%/if%}">
+                        {% if espcms_count((array) $array[i].childArray ) > 0 %} 
+                        <a  href="javascript:void(0);" {%if $array[i].nevigate_target==1%} target="_blank" {%/if%} class="a_animate" title="{%$array[i].title%}" ><span>{%$array[i].title%}</span></a>
+                        <div class="dropdown_menu">
+                            {%forlist from=$array[i].childArray key=ii%}
+                            <a href="{%$array[i].childArray[ii].link%}" title="{%$array[i].childArray[ii].title%}">{%$array[i].childArray[ii].title%}</a>
+                            {%/forlist%}
+                            
+                        </div>
+                        {%else%}
+                        <a href="{%$array[i].title%}" title="{%$array[i].link%}">{%$array[i].title%}</a>
+
+                        {%/if%}
+                    </li>
+                    {%/forlist%}
+                </ul>
+                {%/get%}
+            </div>
+            <a href="javascript:void(0)" id="navToggle"> <span></span>
+            </a>
+        </div>
+    </header>
+    <!--移动端的导航-->
+    <!-- <div class="m_nav">
+        <div class="top clearfix">
+            <img src="{%$rootpath%}images/picture/close.png" alt="" class="closed" />
+        </div>
+        <ul id="demo-1" class="ul" data-in="fadeInDown" data-out="fadeOutUp">
+            <li class="dropdown"> <a href="index.htm" title="首页">首页</a>
+            </li>
+            <li class="dropdown"> <a data-toggle="dropdown" href="#" title="厦大概览">厦大概览</a>
+                <ul class="dropdown_menu animated" data-animation="animate__slideInDown">
+                    <li><a href="sdgl/xxjj.htm" title="学校简介">学校简介</a></li>
+                    <li><a href="sdgl/smdxzc.htm" title="厦门大学章程">厦门大学章程</a></li>
+                    <li><a href="sdgl/xzsp.htm" title="校主生平">校主生平</a></li>
+                    <li><a href="sdgl/xrld.htm" title="现任领导">现任领导</a></li>
+                    <li><a href="sdgl/lrld.htm" title="历任领导">历任领导</a></li>
+                    <li><a href="sdgl/zzjg.htm" title="组织机构">组织机构</a></li>
+                    <li><a href="sdgl/xxbs.htm" title="学校标识">学校标识</a></li>
+                    <li><a href="sdgl/xyyh1.htm" title="学院院徽">学院院徽</a></li>
+                    <li><a href="http://wszg.xmu.edu.cn/" target="_blank" title="网上展馆">网上展馆</a></li>
+                    <li><a href="http://map.xmu.edu.cn/" target="_blank" title="校园地图">校园地图</a></li>
+                    <li><a href="sdgl/xyfg.htm" title="校园风光">校园风光</a></li>
+                </ul>
+            </li>
+            <li class="dropdown"> <a href="#" title="学部院系">学部院系</a>
+                <ul class="dropdown_menu animated" data-animation="animate__slideInDown">
+                    <li><a href="xbyx/rwyysxb.htm" title="人文与艺术学部">人文与艺术学部</a></li>
+                    <li><a href="xbyx/shkxxb.htm" title="社会科学学部">社会科学学部</a></li>
+                    <li><a href="xbyx/zrkxxb.htm" title="自然科学学部">自然科学学部</a></li>
+                    <li><a href="xbyx/gcjsxb.htm" title="工程技术学部">工程技术学部</a></li>
+                    <li><a href="xbyx/yxysmkxxb.htm" title="医学与生命科学学部">医学与生命科学学部</a></li>
+                    <li><a href="xbyx/dqkxyjsxb.htm" title="地球科学与技术学部">地球科学与技术学部</a></li>
+                </ul>
+            </li>
+            <li class="dropdown"> <a href="#" title="人才培养">人才培养</a>
+                <ul class="dropdown_menu animated" data-animation="animate__slideInDown">
+                    <li><a href="https://gs.xmu.edu.cn/xwyxk/zsypyzy.htm" title="学科">学科</a></li>
+                    <li><a href="http://rsc.xmu.edu.cn/3287/list.htm" title="师资">师资</a></li>
+                    <li><a href="http://jwc.xmu.edu.cn/" title="本科生教育">本科生教育</a></li>
+                    <li><a href="http://gs.xmu.edu.cn/" title="研究生教育">研究生教育</a></li>
+                    <li><a href="http://nec.xmu.edu.cn/" title="继续教育与网络教育">继续教育与网络教育</a></li>
+                    <li><a href="http://oec.xmu.edu.cn/" title="国际学生教育">国际学生教育</a></li>
+                    <li><a href="http://xsc.xmu.edu.cn/" title="管理">管理</a></li>
+                </ul>
+            </li>
+            <li class="dropdown"> <a href="xsky.htm" title="学术科研">学术科研</a>
+                <ul class="dropdown_menu animated" data-animation="animate__slideInDown">
+                    <li><a href="http://std.xmu.edu.cn/" title="自然科学与技术">自然科学与技术</a></li>
+                    <li><a href="http://skc.xmu.edu.cn/" title="人文与社会科学">人文与社会科学</a></li>
+                    <li><a href="xsky/yjjg.htm" title="研究机构">研究机构</a></li>
+                    <li><a href="http://postdoctor.xmu.edu.cn/" title="博士后科研流动站">博士后科研流动站</a></li>
+                    <li><a href="http://jxmu.xmu.edu.cn" title="厦门大学学报（自然版）">厦门大学学报（自然版）</a></li>
+                    <li><a href="http://xdxbs.xmu.edu.cn/" title="厦门大学学报（哲社版）">厦门大学学报（哲社版）</a></li>
+                </ul>
+            </li>
+            <li class="dropdown"> <a href="http://dnp.xmu.edu.cn/1278/list.htm" title="社会服务">社会服务</a>
+                <ul class="dropdown_menu animated">
+                    <li><a href="http://zcjy.xmu.edu.cn/" title="成果产业化">成果产业化</a></li>
+                    <li><a href="http://kjy.xmu.edu.cn/" title="大学科技园">大学科技园</a></li>
+                    <li><a href="https://gnhz.xmu.edu.cn/" title="战略合作">战略合作</a></li>
+                    <li><a href="http://hqjt.xmu.edu.cn/" title="后勤服务">后勤服务</a></li>
+                    <li><a href="http://iaec.xmu.edu.cn/" title="会议服务">会议服务</a></li>
+                    <li><a href="http://www.xmupress.com/" title="出版服务">出版服务</a></li>
+                </ul>
+            </li>
+            <li class="dropdown"> <a href="#" title="大学文化">大学文化</a>
+                <ul class="dropdown_menu">
+                    <li><a href="http://tw.xmu.edu.cn/" title="团委">团委</a></li>
+                    <li><a href="http://xsh.xmu.edu.cn/" title="学生委员会">学生委员会</a></li>
+                    <li><a href="http://yjsh.xmu.edu.cn/" title="研究生会">研究生会</a></li>
+                    <li><a href="http://slh.xmu.edu.cn/" title="社团联合会">社团联合会</a></li>
+                    <li><a href="http://lecture.xmu.edu.cn/" title="校园活动">校园活动</a></li>
+                </ul>
+            </li>
+            <li class="dropdown"> <a href="#" title="合作交流">合作交流</a>
+                <ul class="dropdown_menu">
+                    <li><a href="https://ice.xmu.edu.cn/" title="国际合作与交流">国际合作与交流</a></li>
+                    <li><a href="https://ice.xmu.edu.cn/" title="港澳台合作与交流">港澳台合作与交流</a></li>
+                    <li><a href="http://ocia.xmu.edu.cn/" title="孔子学院">孔子学院</a></li>
+                    <li><a href="https://ice.xmu.edu.cn/" title="留学服务">留学服务</a></li>
+                </ul>
+            </li>
+            <li class="dropdown"> <a href="#" title="招生就业">招生就业</a>
+                <ul class="dropdown_menu">
+                    <li><a href="http://zsb.xmu.edu.cn/" title="招生">招生</a></li>
+                    <li><a href="http://jyzd.xmu.edu.cn/" title="就业">就业</a></li>
+                </ul>
+            </li>
+            <li class="dropdown"> <a href="#" title="人才招聘">人才招聘</a>
+                <ul class="dropdown_menu">
+                    <li><a href="http://jobs.xmu.edu.cn/" title="人才招聘网">人才招聘网</a></li>
+                    <li><a href="http://postdoctor.xmu.edu.cn/gldzxq/list.htm" title="博士后">博士后</a></li>
+                </ul>
+            </li>
+            <li><a href="https://en.xmu.edu.cn" target="_blank"><i class="fa fa-globe-asia"> English</i></a></li>
+        </ul>
+    </div> -->
+    <!-- 轮播图 -->
+    <div class="banner">
+        <div class="callbacks_container">
+
+            <ul class="rslides" id="slider">
+                <li>
+                    <a href="" target="_blank" title="">
+                        <img src="{%$rootpath%}images/picture/jiandangyibai1.jpg" alt="">
+                    </a>
+                    <div class="banner-title">
+                        <a href=""></a>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://news.xmu.edu.cn/jiandang100/index.htm" target="_blank" title="">
+                        <img src="{%$rootpath%}images/picture/dangshiwangzhan.jpg" alt="">
+                    </a>
+                    <div class="banner-title">
+                        <a href=""></a>
+                    </div>
+                </li>
+                <li>
+                    <a href="" target="_blank" title="">
+                        <img src="{%$rootpath%}images/picture/2021biye.jpg" alt="">
+                    </a>
+                    <div class="banner-title">
+                        <a href=""></a>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://news.xmu.edu.cn/info/1042/40666.htm" target="_blank" title="">
+                        <img src="{%$rootpath%}images/picture/kaifangri.jpg" alt="">
+                    </a>
+                    <div class="banner-title">
+                        <a href=""></a>
+                    </div>
+                </li>
+                <li>
+                    <a href="" target="_blank" title="">
+                        <img src="{%$rootpath%}images/picture/zhushijue.jpg" alt="">
+                    </a>
+                    <div class="banner-title">
+                        <a href=""></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main">
+        <!--焦点新闻-->
+        <div class="focus">
+            <div class="focus2">
+                <div class="focus2-title">聚焦<i class="fa fa-circle fs-circle"></i>新闻<span></div>
+                <div class="container">
+                    <div class="row">
+                        {%get name=list class=mid:6,tid:60,max:4%}
+                        {%forlist from=$array key=i%}
+                        <div class="col-md-3 col-sm-6 col-xs-6 news-box">
+                            
+                            <div class="focus-img">
+                                <a href="{%$array[i].link%}"><img src="{%$array[i].pic%}"></a>
+                            </div>
+                            <div class="focus-con">
+                                <div class="focus-title"> <a href="{%$array[i].link%}" title="{%$array[i].title%}">{%$array[i].ctitle%}</a>
+                                </div>
+                                <div class="time-share">
+                                    <div class="focus-date"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;{%$array[i].addtime|espcms_timeformat(2)%}</div>
+                                    <div class="bdsharebuttonbox" data-tag="share_1">
+                                        <a>分享到</a>
+                                        <a style="border-radius: 50%;" class="bds_weixin" data-cmd="weixin"></a>
+                                        <a style="border-radius: 50%;" class="bds_tsina" data-cmd="tsina"></a>
+                                        <a style="border-radius: 50%;" class="bds_sqq" data-cmd="sqq"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {%/forlist%}
+                        {%/get%}
+                    </div>
+                    <div class="more"> 
+                        <i class="fa fa-hand-o-right" style="margin-right: 10px;"></i><a href="{%find:type class=59 out=link%}" target="_blank" >进入白云新闻网</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--通知公告-->
+        <div class="ztzl tzgg">
+
+            <div class="container">
+                <div class="row">
+                    <div class="tzgg-main">
+                        <div class="tzgg-title">通知<i class="fa fa-circle fs-circle"></i>公告</div>
+                        {%get name=list class=mid:6,tid:64,max:6%}
+                        {%forlist from=$array key=i%}
+                        <div class="col-md-4">
+                            <div class="tzgg-item">
+                                <div class="tzgg-left">
+                                    <div class="tzgg-date">
+                                        <div class="day">{%$array[i].addtime|espcms_timeformat(11)%}</div>
+                                        <div class="mon-year">{%$array[i].addtime|espcms_timeformat(7)%}</div>
+                                    </div>
+                                </div>
+                                <div class="tzgg-right">
+                                    <div class="tzgg-item-title"> <a href="{%$array[i].link%}" title="{%$array[i].title%}">{%$array[i].ctitle%}</a>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        {%/forlist%}
+                        {%/get%}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--探索发现-->
+        <div class="tsfx wow lightSpeedIn"  data-wow-iteration="5" data-wow-duration="0.15s">
+            <div class="tsfx-main">
+                <div class="tsfx-title"> <i class="fa fa-lg fa-microscope"></i>学术<i class="fa fa-circle fs-circle"></i>探索</div>
+                <div class="container">
+                    <div class="tsfx-con">
+                        {%get name=list class=mid:2,tid:86,max:6%}
+                        {%forlist from=$array key=i%}
+                        <div class="tsfx-item">
+                            <div class="tsfx-img">
+                                <img src="{%$array[i].pic%}">
+                            </div>
+                            <div class="tsfx-item-title "> 
+                                <a class="content-clamp2" href="{%$array[i].link%}" title="{%$array[i].title%}">{%$array[i].ctitle%}</a>
+                            </div>
+                        </div>
+                        {%/forlist%}
+                        {%/get%}
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--文化日历-->
+        <div class="whrl">
+            <div class="container">
+                <div class="row">
+                    <div class="whrl-title">文化<i class="fa fa-circle fs-circle"></i>日历</div>
+                    <div class="col-md-8 col-xs-12" style="background-color: #ffffff;">
+                        <div class="row">
+                            {%get name=list class=mid:8,tid:105,max:4%}
+                            {%forlist from=$array key=i%}
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="news_box clearfix">
+                                        <div class="news_date">
+                                            <div class="news_year">{%$array[i].addtime|espcms_timeformat(11)%}</div>
+                                            <div class="news_days">{%$array[i].addtime|espcms_timeformat(10)%}月</div>
+                                            <div class="news_pre"><a href="{%$array[i].link%}">更多</a></div>
+                                        </div>
+                                        <div class="news_wz">
+                                            <div class="news_con">
+                                                <div class="news_title">
+                                                    <a class="content-clamp1" href="{%$array[i].link%}" target="_blank" title="{%$array[i].link%}">{%$array[i].ctitle%}</a>
+                                                </div>
+                                                <div class="news_text">
+                                                    <p class="t1 content-clamp1"><i class="fa fa-clock-o"></i>{%$array[i].yanchu_time%}</p>
+                                                    <p class="t2 content-clamp1"><i class="fa fa-map-marker"></i>{%$array[i].place%}</p>
+                                                    <p class="t3 content-clamp1"><i class="fa fa-user-o"></i>{%$array[i].presenter%}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            {%/forlist%}
+                            {%/get%}
+                        </div>
+                    </div>
+                    <!-- js 日历插件 -->
+                    <div class="col-md-4 col-xs-12">
+                        <div class="father">
+                            <div id="calendarChris" class="chris-calendar">
+                                <div class="calendar-header">
+                                    <div class="calendar-header-data">
+                                        <div class="calendar-header-left list" onclick="calendarBack()"> < </div>
+                                        <div class="calendar-header-center list-big" id="timeNow">2017</div>
+                                        <div class="calendar-header-right list" onclick="calendarGo()"> > </div>
+                                    </div>
+                                    <span class="is-today">今天</span>
+                                </div>
+                                <div class="calendar-week">
+                                    <div class="week-list">
+                                        周日
+                                    </div>
+                                    <div class="week-list">
+                                        周一
+                                    </div>
+                                    <div class="week-list">
+                                        周二
+                                    </div>
+                                    <div class="week-list">
+                                        周三
+                                    </div>
+                                    <div class="week-list">
+                                        周四
+                                    </div>
+                                    <div class="week-list">
+                                        周五
+                                    </div>
+                                    <div class="week-list">
+                                        周六
+                                    </div>
+                                </div>
+                                <div class="calendar-day" id="calendarDay">
+                                </div>
+                                <div class="calendar-right">
+                                    <div class="calendar-right-head">
+                                        <span class="calendar-right-head-person"></span>
+                                        <span class="calendar-right-head-time"></span>
+                                        <span class="calendar-right-head-icon">x</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--每日一书-->
+        <div class="wrapper mrys">
+            <div class="inner">
+                <div class="mod clearfix">
+                    <div class="links_boxs">
+                            <div class="col-md-8 col-xs-12">
+                                <div class="news_title1">
+                                    <div class="news_titlecon">在这里，畅游浩瀚书海</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-xs-12">
+                                <div class="news_links">
+                                    <a href="{%find:type class=106 out=link%}" target="_blank">点击进入图书馆</a>
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+
+        </style>
+
+        <!--专题新闻-->
+        <div class="ztzl tzgg">
+            <div class="container">
+                <div class="row">
+                    <div class="ztzl-h2"> <i class="fa fa-lg fa-microscope"></i>专题<i class="fa fa-circle fs-circle"></i>网站</div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="media">
+                            <a href="javascript:void(0);">
+                                <img class="media-object" src="{%$rootpath%}images/picture/zhuan1.jpg" alt=""不忘初心、牢记使命" 主题教育专题网">
+                                <div class="border"></div>
+                            </a>
+                            <div class="media-body">
+                                <h5 class="text-center mediatitle"><a href="javascript:void(0);" title=""不忘初心、牢记使命" 主题教育专题网">"不忘初心、牢记使命" 主题教育专题网</a></h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="media">
+                            <a href="javascript:void(0);">
+                                <img class="media-object" src="{%$rootpath%}images/picture/zhuan2.png" alt="庆祝建党100周年专题网">
+                                <div class="border"></div>
+                            </a>
+                            <div class="media-body">
+                              <h5 class="text-center mediatitle"><a href="javascript:void(0);" title="庆祝建党100周年专题网">庆祝建党100周年专题网</a></h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="media">
+                            <a href="javascript:void(0);">
+                                <img class="media-object" src="{%$rootpath%}images/picture/zhuan3.jpg" alt="新型肺炎防控专题">
+                                <div class="border"></div>
+                            </a>
+                            <div class="media-body">
+                              <h5 class="text-center mediatitle"><a href="javascript:void(0);" title="新型肺炎防控专题">新型肺炎防控专题</a></h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="media">
+                            <a href="javascript:void(0);">
+                                <img class="media-object" src="{%$rootpath%}images/picture/zhuan4.jpg" alt="十九大会议精神专题">
+                                <div class="border"></div>
+                            </a>
+                            <div class="media-body">
+                                <h5 class="text-center mediatitle"><a href="javascript:void(0);" title="十九大会议精神专题">十九大会议精神专题</a></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12 links">
+                        <div class="link-title">常用链接</div>
+                        <ul>
+                            <li><a href="javascript:void(0);">院系一览</a></li>
+                            <li><a href="javascript:void(0);">数字图书馆</a></li>
+                            <li><a href="http://10.16.212.253/1_lei-code_com/index.php?ac=Article&at=List&tid=147#">服务中心</a></li>
+                            <li><a href="javascript:void(0);">人才招聘</a></li>
+                            <li><a href="javascript:void(0);">本科生招生</a></li>
+                            <li><a href="javascript:void(0);">哔哩哔哩直播</a></li>
+                            <li><a href="javascript:void(0);">校园风光</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12 links">
+                        <div class="link-title">友情链接</div>
+                        <ul>
+                            <li><a href="javascript:void(0);">教育部</a></li>
+                            <li><a href="javascript:void(0);">广州市人民政府</a></li>
+                            <li><a href="javascript:void(0);">广东省教育考试院</a></li>
+                            <li><a href="javascript:void(0);">广东省教育厅</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-xs-12">
+                            <div class="footer-logo">
+                                <img src="{%$rootpath%}images/picture/baiyun4.png" />
+                            </div>
+                            <div class="footer-adress">
+                                <ul>
+                                    <li><span>招生咨询：020-36093333</span><span>&nbsp;&nbsp;&nbsp;&nbsp;传真：020-36095259</span></li>
+                                    <li><span>西校区地址：广州市白云区江高镇学苑路1号</span></li>
+                                    <li><span>北校区地址：广州市白云区钟落潭镇九佛西路280号</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <div class="footer-icons">
+                                <ul>
+                                    <li>
+                                        <div class="icon-item">
+                                            <img src="{%$rootpath%}images/picture/dy3.png" />
+                                        </div>
+                                        <div class="wb-code">
+                                            <img src="{%$rootpath%}images/picture/xyxcx.png" />
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon-item">
+                                            <img src="{%$rootpath%}images/picture/btn02.png" />
+                                        </div>
+                                        <div class="wb-code">
+                                            <img src="{%$rootpath%}images/picture/xywx.jpg" />
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon-item">
+                                            <img src="{%$rootpath%}images/picture/btn03.png" />
+                                        </div>
+                                        <div class="wb-code">
+                                            <img src="{%$rootpath%}images/picture/dy.png" />
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="copyright"><a href="javascript:void(0);" target="_blank" style="color:#ffffff">粤ICP备15092391号-2</a>&nbsp;&nbsp;粤公网安备 44011102000160号&nbsp;&nbsp;&nbsp;&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;版权所有&copy;白云学院</span> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div id="m-video" class="dn m-pop"> <span class="close"></span>
+        <div class="inner">
+            <video controls src="https://en.xmu.edu.cn/_upload/article/videos/ef/69/12e6161a460989958294b09d0185/26d15ea4-ceba-4f48-85ad-5c85cb992113-B.mp4">
+                <embed type="video/mp4" src="https://en.xmu.edu.cn/_upload/article/videos/ef/69/12e6161a460989958294b09d0185/26d15ea4-ceba-4f48-85ad-5c85cb992113-B.mp4" autostart="false">
+            </video>
+        </div>
+    </div> -->
+    <!-- 视频弹框 end-->
+    <!-- Core -->
+    <script type="text/javascript" src="{%$rootpath%}js/zepto.min.js"></script>
+    <!-- swiper轮播图 -->
+    <script type="text/javascript" src="{%$rootpath%}js/swiper.js"></script>
+    <!-- jquery-1.9.1 -->
+    <script type="text/javascript" src="{%$rootpath%}js/jquery-1.9.1.min.js"></script>
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.6.1/jquery.min.js"></script> -->
+    <!-- bootstrap -->
+    <script type="text/javascript" src="{%$rootpath%}css/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Plugins: Sorted A-Z -->
+    <script type="text/javascript" src="{%$rootpath%}js/menu.js"></script>
+    <!-- 回到顶点插件 -->
+    <script type="text/javascript" src="{%$rootpath%}js/totop.js"></script>
+    <!-- jQuery自动轮插件jquery.SuperSlide -->
+    <script type="text/javascript" src="{%$rootpath%}js/jquery.superslide.js"></script>
+    <!--  jQuery幻灯片插件 -->
+    <script type="text/javascript" src="{%$rootpath%}js/responsiveslides.min.js"></script>
+    <!-- Zepto.js 移动JavaScript框架 -->
+    <script type="text/javascript" src="{%$rootpath%}js/style.js"></script>
+    <!-- 动画特效 -->
+    <script type="text/javascript" src="{%$rootpath%}js/wow.js"></script>
+    <!-- tabs hover事件 -->
+    <script type="text/javascript" src="{%$rootpath%}js/jquery.tabslet.min.js"></script>
+    <!-- 日期插件 -->
+    <script type="text/javascript" src="{%$rootpath%}js/date.js"></script>
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/jquery-datetimepicker/2.5.9/jquery.datetimepicker.full.min.js"></script> -->
+
+
+
+
+
+    <!-- <link rel="stylesheet" type="text/css" href="{%$rootpath%}css/_sitegray_d.css" /> -->
+    <!-- <script language="javascript" src="{%$rootpath%}js/_sitegray.js"></script> -->
+    <!-- CustomerNO:7765626265723230777847545350554403080002 -->
+    <!-- <script type="text/javascript" src="{%$rootpath%}js/vsbscreen.min.js" id="_vsbscreen" devices="pc|mobile|pad"></script> -->
+    <!-- <script type="text/javascript" src="{%$rootpath%}js/counter.js"></script> -->
+
+    <!-- <script language="javascript" src="{%$rootpath%}js/dynclicks.js"></script> -->
+    <!-- <script language="javascript" src="{%$rootpath%}js/ajax.js"></script> -->
+
+    <!-- <script language="javascript" src="{%$rootpath%}js/openlink.js"></script> -->
+
+
+</body>
+
+</html>
+<a href="#0" class="cd-top">Top</a>
+<script>
+
+    wow = new WOW({
+      　　animateClass: 'animated',
+    });
+    wow.init();
+    $(function(){
+        $('.tabs').tabslet();
+    });
+    $("whrl .learning-date-picker").click(function() {
+            console.log("111")
+    });
+
+</script>
+<script type="text/javascript">
+    $("#slider").responsiveSlides({
+        auto: true,
+        pager: false,
+        nav: true,
+        speed: 500,
+        timeout: 4000,
+        pager: true,
+        pauseControls: true,
+        namespace: "callbacks"
+    });
+    $(function() {
+        var tabsSwiper;
+        tabsSwiper = new Swiper('.news-media .swiper-container', {
+            speed: 500,
+            onSlideChangeStart: function() {
+                $(".news-media .tabs .active").removeClass('active');
+                $(".news-media .tabs span").eq(tabsSwiper.activeIndex).addClass('active');
+            }
+        });
+        $(".news-media .tabs span").on('touchstart mousedown', function(e) {
+            e.preventDefault()
+            $(".news-media .tabs .active").removeClass('active');
+            $(this).addClass('active');
+            tabsSwiper.swipeTo($(this).index());
+        });
+        $(".news-media .tabs span").click(function(e) {
+            e.preventDefault();
+        });
+        var tabsSwiper2;
+        tabsSwiper2 = new Swiper('.whrl .swiper-container', {
+            speed: 500,
+            onSlideChangeStart: function() {
+                $(".whrl .tabs .active").removeClass('active');
+                $(".whrl .tabs span").eq(tabsSwiper2.activeIndex).addClass('active');
+            }
+        });
+        $(".whrl .tabs span").on('touchstart mousedown', function(f) {
+            f.preventDefault()
+            $(".whrl .tabs .active").removeClass('active');
+            $(this).addClass('active');
+            tabsSwiper2.swipeTo($(this).index());
+        });
+        $(".whrl .tabs span").click(function(f) {
+            f.preventDefault();
+        });
+    }); //end
+    jQuery(".tabBar").slide({
+        mainCell: ".conWrap",
+        effect: "left",
+        trigger: "click",
+        pnLoop: false
+    });
+    jQuery(".tabBar2").slide({
+        mainCell: ".conWrap",
+        effect: "left",
+        trigger: "click",
+        pnLoop: false
+    });
+</script>
+<script>
+    /* 分享插件 */
+    (function() {
+        window._bd_share_config = {
+            "common": {
+            "bdMini": "2",
+            "bdStyle": "1",
+            "bdSize": "18",
+            "bdSign": "on",
+        },
+        "share": [
+            {"tag" : "share_1","bdSize" : 16,}
+        ],
+        // "slide": {},
+        "selectShare": {
+            "bdContainerClass": ".focus2",
+            "bdSelectMiniList": ["weixin", "tsina", "tqq"]
+        }
+        };
+        with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+    })()
+</script>

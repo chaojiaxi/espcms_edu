@@ -1,0 +1,38 @@
+a{text-decoration: none;}
+ul,li,ol{margin: 0;padding: 0;}
+i{font-style:normal;}
+.fz30 {font-size: 30px;line-height: 1.3;}
+.pd50{padding: 0 50px;}
+.mt30{margin-top: 30px;}
+.flex{ display: flex; }
+/* 单行省略 */
+.content-clamp1 {display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;-webkit-line-clamp: 1;}
+/* 两行省略 */
+.content-clamp2 {display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;-webkit-line-clamp: 2;}
+/* 三行省略 */
+.content-clamp3 {display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;-webkit-line-clamp: 3;}
+/* 四行省略 */
+.content-clamp4 {display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;-webkit-line-clamp: 4;}
+
+
+/* 页码和暂无内容 */
+.page_botton{margin-top: 100px;text-align: center;}
+.page_botton .page_num{color: #333;background-color: #fff;border-color: #ccc;outline: 0px;}
+.no-content{padding-top: 100px;text-align: center;font-size: 18px;color: #666;}
+.toTop{display: flex;justify-content: flex-end;}
+.toTop a{text-decoration: none;}
+a:visited,a:focus{color: none !important;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
